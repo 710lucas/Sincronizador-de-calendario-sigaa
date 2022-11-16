@@ -1,0 +1,1647 @@
+<!DOCTYPE HTML>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+	
+		<title> SIGAA- Sistema Integrado de Gest&#227;o de Atividades Acad&#234;micas </title>
+		<link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" rel="stylesheet" type="text/css" /><link class="component" href="/sigaa/a4j/s/3_3_3.Finalorg/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAF7sqpgb-jyGdIAFrMEaw__.jsf" media="rich-extended-skinning" rel="stylesheet" type="text/css" /><script src="/sigaa/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript.jsf" type="text/javascript"></script><script type="text/javascript">window.RICH_FACES_EXTENDED_SKINNING_ON=true;</script><script src="/sigaa/a4j/g/3_3_3.Finalorg/richfaces/renderkit/html/scripts/skinning.js.jsf" type="text/javascript"></script><link rel="shortcut icon" href="/sigaa/img/sigaa_UFPB.ico" />
+	
+		<script>
+		//Indica para algumas fun&#231;&#245;es javascript que o layout utilizado &#233; o do SIGAA beta.
+		const LAYOUT_BETA = true;
+		</script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/jquery-migrate-3.0.0.min.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/bootstrap.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/bootstrap-dialog.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/sigaa_beta_utils.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/javascript/paineis/painel_generico.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/javascript/formatador.js"></script>
+		
+		<script type="text/javascript" src="/sigaa/jsBundles/jawr_loader.js"></script>
+		
+		<script type="text/javascript">
+			<!-- jawr_loader.js / jawr.shared.properties -->
+			JAWR.loader.script('/sigaa/bundles/js/sigaa_base.js');
+		</script>
+			
+		<link rel="stylesheet" type="text/css" href="/sigaa/shared/beta/css/bootstrap.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="/sigaa/shared/beta/css/font-awesome.css" media="screen" />
+		
+		<!-- Tema do SIGAA BETA -->
+		
+		
+		<link rel="stylesheet" type="text/css" href="/sigaa/shared/beta/css/tema8.css" media="screen" id="temaLayout" />
+		
+		<!-- INICIO MENU -->
+		<script type="text/javascript" src="/sigaa/shared/beta/js/jquery.smartmenus.js"></script>
+		<script type="text/javascript" src="/sigaa/shared/beta/js/jquery.smartmenus.keyboard.js"></script>
+		<link rel="stylesheet" type="text/css" href="/sigaa/shared/beta/css/sm-core-css.css" media="screen" />
+		<style>ul.sm *{z-index: 5;}</style>
+		
+		<script type="text/javascript">
+			var itemWithSubMenu = null;
+			jQuery(function($) {
+				<!-- SmartMenus jQuery init - jquery.smartmenus.js -->
+				$menu = $('#main-menu');
+				if ( $menu ){
+					$menu.smartmenus({
+						subMenusSubOffsetX : 1,
+						subMenusSubOffsetY : -8,
+						hideDuration : 0,
+						showDuration : 0,
+						subMenusMaxWidth: '26em',
+					});
+					$menu.smartmenus('keyboardSetHotkey', '123', 'shiftKey');
+				}
+				<!-- FIM MENU -->
+				
+				<!-- Detalhes do usu&#225;rio -->
+				//mostra ou oculta a op&#231;&#227;o de alterar a foto do discente
+				$("#detalhes-usuario .foto-perfil").bind({
+					mouseenter:function(){$(this).find(".acoes").slideDown()},
+					mouseleave:function(){$(this).find(".acoes").slideUp()}
+				})
+				
+				
+				<!-- paleta cores - sigaa_beta_utils.js -->
+				if ( $('#paleta-cores') ){
+					$('#paleta-cores').paletaCores();
+					$('#paleta-cores-horizontal').paletaCores();
+				}
+				<!-- FIM paleta cores -->
+
+				<!-- acessibilidade texto - sigaa_beta_utils.js -->
+				if ($('#menu-acessibilidade')){
+					$('#acessibilidade-contraste').contraste();
+					
+					//inicia o contraste, caso tenha a a&#231;&#227;o sido executada anteriormente
+					$('#menu-acessibilidade').contraste("iniciar");
+					
+				}
+				<!-- FIM acessibilidade texto -->
+			});
+		</script>
+<script type="text/javascript">var useGeneralJS = false;</script>
+<script type="text/javascript" src="/sigaa/shared/javascript/general.js" ></script>
+	</head>
+	
+	<body>
+	
+	<div class="wrapper">
+		<div id="ufrn-cabecalho">
+			<div id="barra-sistema">
+				<div class="ufrn-container">
+					<div class="ufrn-marca pull-left">
+						<p>UFPB</p>
+					</div>
+									
+					<ul id="menu-acessibilidade">
+						<li><a href="#conteudo" class="sr-only sr-only-focusable">Pular para conte&#250;do</a></li>
+						<li class="separador"></li>
+						<li><a href="#" id="acessibilidade-contraste" title="Contraste" class="toggleable"><span class="icone-contraste"></span><span class="sr-only">Auto Contraste</span></a></li>
+	                    <li class="separador"></li>
+						
+							<li class="botao-sair">
+								<a href="/sigaa/logoff/" title="Sair do SIGAA" class="icone-sair"></a>
+							</li>
+						
+	                </ul>  
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+				
+
+
+
+
+<!-- INICIO PAINEL -->
+<div id="painel-usuario">
+  <div class="ufrn-container">
+		
+		<div class="logo pull-left" style="width: 18%;">
+			<img alt="SIGAA beta" title="SIGAA" height="51" src="/sigaa/shared/beta/img/SIGAA-horizontal.png" />
+			<span style="left: 32%; top: 80%;"><a href='/sigaa/portal/discente/'>Portal do Discente</a></span>
+		</div>
+        
+        <div class="painel-usuario-row pull-right">
+		
+		<div class="painel-usuario-acoes">
+			<ul>
+				
+				
+
+				
+				
+				
+					<li><a href="/sigaa/menu/" title="M&#243;dulos do sistema"><span class="fa fa-th fa-2x"></span></a></li>
+				
+					<!-- Caixa Postal -->
+					<li>
+						<a href=/sigaa/abrirCaixaPostal.jsf?sistema=2 title="Caixa postal">
+							<span class="fa fa-envelope fa-2x " style="margin-top: -4px;"></span>
+							 
+						</a>
+					</li>
+				
+				
+				<!-- Troca de v&#237;nculo -->
+				
+					
+			</ul>
+		</div>
+
+		  
+		<div class="painel-usuario-identificacao">
+			<div>Ol&#225;, 
+				<span>LUCAS PERONICO BARBOTIN</span>
+			</div>
+			
+			<div> 
+				SISTEMAS DE INFORMA&#199;&#195;O - GRADUA&#199;&#195;O
+			</div>
+			
+			
+				<div class="matricula">
+					<small>Semestre atual:  
+						<span>2022.1</span>
+					</small>
+				</div>
+			
+		</div>
+		
+		<div class="painel-usuario-foto">
+			<div class="dropdown navbar-right">
+				<a id="fotoUsuario" role="button" data-toggle="dropdown" data-target="#" href="#">
+					
+					
+						<img src="/sigaa/shared/beta/img/avatar_no_picture.gif" class="circle" alt="Foto do usu&#225;rio" title="LUCAS PERONICO BARBOTIN"/>
+					
+				</a>
+				<ul id="detalhes-usuario" class="dropdown-menu" role="menu" aria-labelledby="fotoUsuario">
+					<li>
+					    <table>
+					        <tbody>
+					            <tr class="fix-height">
+					                
+					                <td colspan="2" class="detalhes-usuario-matricula">
+				                    	<small>20220019339</small>
+					                <td>
+					            </tr>
+					            <tr>
+					                <td colspan="2" class="detalhes-usuario-nome"><span class="text-uppercase">LUCAS PERONICO BARBOTIN</span></td>
+					            </tr>
+					            
+					            <tr>
+					            	<td colspan="2"> <span>Discente</span> </td>
+					            </tr>
+					            <tr>
+									<td> E-mail: </td>
+									<td>  lucas.peronico@dcx.ufpb.br</td>
+								</tr>
+					        </tbody>
+					    </table>
+					</li>
+					
+						
+
+
+
+
+
+					
+					
+					
+					<li class="divider"></li>
+					
+					<li class="detalhes-usuario-ch">
+					  	
+						
+						
+						
+						
+							
+
+   
+   
+   
+
+   
+   
+
+		<table>
+			<tr>
+				<td><abbr title="Carga hor&#225;ria">CH.</abbr> obrigat&#243;ria pendente </td>
+				<td style="text-align: right;"> 2820 </td>
+			</tr>
+			<tr>
+				<td><abbr title="Carga hor&#225;ria">CH.</abbr> optativa pendente </td>
+				<td style="text-align: right;"> 180 </td>
+			</tr>
+			<tr>
+				<td><abbr title="Carga hor&#225;ria">CH.</abbr> total do curr&#237;culo </td>
+				<td style="text-align: right;"> 3000 </td>
+			</tr>
+		</table>
+		
+		<li>
+			<div class="progress">
+				
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+					style="width: 00%"> 00%
+				</div>
+			</div>
+		</li>
+		<ul>
+			<li>
+				<a href="/sigaa/portal/discente/integralizacao/">Detalhes</a>
+			</li>
+		</ul>
+					    
+
+						
+					</li>
+					
+					<li class="divider"></li>
+                    <li>
+                        <div>Personalize:</div>
+                        
+                        <ul id="paleta-cores-horizontal">
+                          	 <li class="cor cor1"  data-tema="tema1"></li>
+                            <li class="cor cor2"  data-tema="tema2"></li>
+                            <li class="cor cor3"  data-tema="tema3"></li>
+                            <li class="cor cor4"  data-tema="tema4"></li>
+                            <li class="cor cor5"  data-tema="tema5"></li>
+                            <li class="cor cor6"  data-tema="tema6"></li>
+                            <li class="cor cor7"  data-tema="tema7"></li>
+                            <li class="cor cor8"  data-tema="tema8"></li>
+                            <li class="cor cor9"  data-tema="tema9"></li>
+                            <li class="cor cor10" data-tema="tema10"></li>
+                            <li class="cor cor11" data-tema="tema11"></li>
+                            <li class="cor cor12" data-tema="tema12"></li>
+                        </ul>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+					<li>
+						<ul class="acoes-usuario">
+							
+							
+								<li>
+								  	<a href="/sigaa/portais/discente/perfil.jsf">
+								    <span class="icone-editar-dados-pessoais"></span><br/> Perfil </a>
+								</li>
+							
+							<li>
+								<a href="#" onclick="window.open('/sigaa/alterar_dados.jsf','','width=670,height=430, top=100, left=100, scrollbars' )">
+                                <span class="icone-alterar-senha"></span><br/> Alterar senha </a>
+                            </li>
+							<li>
+								
+										<a href="#" onclick="window.open('https://suporte.sti.ufpb.br', 'chamado', 'scrollbars=1,width=700,height=600')">
+										<span class="icone-chamado-suporte"></span><br/>
+										Abrir Chamado
+										</a>
+								
+                            </li>
+						</ul>
+					</li>
+				</ul>	
+			</div>
+		  </div>
+        </div>
+      <div class="clearfix"></div>
+   </div>
+</div>
+<script>
+jQuery(function($) {
+	//Evita que os detalhes do usu&#225;rio seja fechado se for clicado em seu conte&#250;do.
+	$('#detalhes-usuario li').click(function(e) {
+		e.stopPropagation();
+    });
+});
+</script>
+
+<!-- FIM PAINEL -->
+			
+			
+		</div>
+		
+		<div id="conteudo" class="ufrn-container"> <!-- Ser&#225; fechado em rodape.jsp -->
+		
+	<script>
+	//#FIX conflito prototype e bootstrap
+	//INICIO
+	jQuery.noConflict();
+	/*if (Prototype.BrowserFeatures.ElementExtensions) {
+	    var disablePrototypeJS = function (method, pluginsToDisable) {
+	            var handler = function (event) {
+	                event.target[method] = undefined;
+	                setTimeout(function () {
+	                    delete event.target[method];
+	                }, 0);
+	            };
+	            pluginsToDisable.each(function (plugin) { 
+	                jQuery(window).on(method + '.bs.' + plugin, handler);
+	            });
+	        },
+	        pluginsToDisable = ['collapse', 'dropdown', 'modal', 'tooltip'];
+	    disablePrototypeJS('show', pluginsToDisable);
+	    disablePrototypeJS('hide', pluginsToDisable);
+	}*/
+	//FIM
+	
+	jQuery(function($) {
+		transformaBreadcumbs();
+		tranformaDescricaoOperacao();
+		selecionarPrimeiraAba();
+		//transformaBotoes();
+		
+		//adicionaCssTabelaListagem();
+		
+		//removeRichFaceCss();
+		
+		function transformaBreadcumbs(){
+			//Transforma o breadcumbs da vers&#227;o antiga para a vers&#227;o nova
+			var breadcumbsAtual = jQuery(".ufrn-container > h2");
+			if ( breadcumbsAtual.length == 0 ) {
+				breadcumbsAtual = jQuery(".ufrn-container form > h2");
+			}
+			
+			if ( breadcumbsAtual.length == 0 ) return;
+
+			var arrPath = breadcumbsAtual.html().split("&gt;");
+			var expressaoLink = /<a href=\"(.+)">(.+)<\/a>/m;
+			var padraoLink = new RegExp( expressaoLink );
+			template = "<ol class='breadcrumb'>";
+			for( i=0; i<arrPath.length-1; i++ ){
+				if ( i == 0 && padraoLink.test( arrPath[i] ) ){
+					link = arrPath[i].match( expressaoLink )[1];
+					nome = arrPath[i].match( expressaoLink )[2];
+					template += "<li><a href="+ link +"><span class='glyphicon glyphicon-home'></span>"+ nome +"</a></li>";	
+				}else{
+					template += "<li>"+ jQuery.trim(arrPath[i]) +"</li>";	
+				}				
+			}
+			template += "</ol>";
+			
+			//ultimo elemento &#233; o t&#237;tulo da p&#225;gina
+			template += "<div class='page-header'>";
+			template += "<h1>"+jQuery.trim(arrPath[arrPath.length-1])+"</h1>";
+			template += "</div>";
+
+			breadcumbsAtual[0].outerHTML = template ;
+		}
+		
+		function tranformaDescricaoOperacao(){
+			//pega apenas a descri&#231;&#227;o da opera&#231;&#227;o da tela.
+			var descricaoOperacao = jQuery(".ufrn-container > .descricaoOperacao");
+			
+			if ( descricaoOperacao.length == 0 ) {
+				descricaoOperacao = jQuery(".ufrn-container form > .descricaoOperacao");
+			}
+			
+			if ( descricaoOperacao.length == 0 ) {
+				descricaoOperacao = jQuery(".bootstrap-dialog-message .descricaoOperacao");
+				descricaoOperacao.find('br').remove();
+			}
+			
+			descricaoOperacao.each( function( index ){
+				obj = jQuery(this);
+				obj.removeClass("descricaoOperacao");
+				
+				if (!obj.hasClass("alert")){//se j&#225; tem a classe alert, assume-se que j&#225; est&#225; no padr&#227;o do sigaa beta
+					obj.addClass("conteudo");
+					obj.wrap("<div class='alert alert-info'></div>");
+					obj.parent().prepend( "<div class='icone'><span class='glyphicon glyphicon-info-sign'></span></div>" );
+				}
+			});
+			
+		}
+		
+		function transformaBotoes(){
+			jQuery("table.formulario tfoot,table.visualizacao tfoot, table.listagem tfoot").find("button,input[type=submit],input[type=button]").each( function( index ){
+				if( !jQuery(this).hasClass("btn") ){
+					jQuery(this).addClass("btn");
+				}
+				
+				if ( !jQuery(this).hasClass("btn-default") && !jQuery(this).hasClass("btn-primary") ){
+					jQuery(this).addClass("btn-default");
+				}
+			});
+		}
+		
+		function removeRichFaceCss(){
+			/** Remove todas as classes do rich-faces **/
+			jQuery("[class*='rich-']").each(function () {
+			    var className = this.className.match(/rich-(\w|-)+/i);
+			    if ( jQuery(this).hasClass( className[0] ) ){
+			       jQuery(this).removeClass( className[0] );
+			    }
+			});
+		}
+		
+		function adicionaCssTabelaListagem(){
+			jQuery("table.listagem").each( function(){
+				var arrClassToAdd = ["table","table-hover"];
+				var table = jQuery(this);
+				for ( i=0; i < arrClassToAdd.length; i++ ){
+					if ( !table.hasClass( arrClassToAdd[i] ) ){
+						table.addClass( arrClassToAdd[i] );
+					}
+				}
+			});
+		}
+		
+		//remove o menu antigo se ele estiver incluido
+		if (jQuery('#menu-dropdown')){
+		  jQuery('#menu-dropdown').remove();
+		}
+		
+	});
+	</script>
+ 
+
+
+
+
+
+
+	
+
+<script>
+	jQuery(document).ready(function($) {
+		if ($("#main-menu > li a")) {
+			$("#main-menu > li a").on('click', function() {
+				$("#subsistema").val("12100");
+			});
+		}
+	});
+</script>
+
+
+<form id="j_id_jsp_552244886_1" name="j_id_jsp_552244886_1" method="post" action="/sigaa/portais/discente/beta/discente.jsf" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="j_id_jsp_552244886_1" value="j_id_jsp_552244886_1" />
+
+
+		<input type="hidden" name="subsistema" id="subsistema" />
+
+		<div class="row">
+			
+
+
+<div class="ufrn-container">
+	<ul id="main-menu" class="sm sm-blue">
+
+	
+		
+		<li><a href="#">Ensino</a>
+			<ul>
+				<li>
+<script type="text/javascript" language="Javascript">function dpf(f) {var adp = f.adp;if (adp != null) {for (var i = 0;i < adp.length;i++) {f.removeChild(adp[i]);}}};function apf(f, pvp) {var adp = new Array();f.adp = adp;var i = 0;for (k in pvp) {var p = document.createElement("input");p.type = "hidden";p.name = k;p.value = pvp[k];f.appendChild(p);adp[i++] = p;}};function jsfcljs(f, pvp, t) {apf(f, pvp);var ft = f.target;if (t) {f.target = t;}f.submit();f.target = ft;dpf(f);};</script>
+<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_2':'j_id_jsp_552244886_1:j_id_jsp_552244886_2'},'');}return false"> Minhas Notas </a></li>
+				<li><a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_3':'j_id_jsp_552244886_1:j_id_jsp_552244886_3'},'');}return false">Atestado de Matr&iacute;cula</a></li>
+				<li><a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_4':'j_id_jsp_552244886_1:j_id_jsp_552244886_4'},'');}return false">Consultar Hist&oacute;rico</a></li>
+				<li><a id="j_id_jsp_552244886_1:declaracaoVinculo" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:declaracaoVinculo':'j_id_jsp_552244886_1:declaracaoVinculo'},'');}return false">Declara&ccedil;&atilde;o de V&iacute;nculo</a></li>				
+				
+					<li><a href="#">Avalia&#231;&#227;o Institucional</a>
+						<ul>							
+							<li><a id="j_id_jsp_552244886_1:listaAvaliacoesInstitucionais" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:listaAvaliacoesInstitucionais':'j_id_jsp_552244886_1:listaAvaliacoesInstitucionais'},'');}return false">Preencher a Avalia&ccedil;&atilde;o Institucional</a></li>
+							<li><a id="j_id_jsp_552244886_1:reverAvaliacaoAnterior" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:reverAvaliacaoAnterior':'j_id_jsp_552244886_1:reverAvaliacaoAnterior'},'');}return false">Rever a Avalia&ccedil;&atilde;o Anterior</a></li>
+							
+								<li> <a href="#">Consultar o Resultado da Avalia&#231;&#227;o</a>
+									<ul>
+										<li><a id="j_id_jsp_552244886_1:resultadoAvaliacaoDocente" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resultadoAvaliacaoDocente':'j_id_jsp_552244886_1:resultadoAvaliacaoDocente'},'');}return false">Resultado da Avalia&ccedil;&atilde;o do Docente</a></li>
+										<li><a id="j_id_jsp_552244886_1:resultadoAvaliacaoDisciplina" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resultadoAvaliacaoDisciplina':'j_id_jsp_552244886_1:resultadoAvaliacaoDisciplina'},'');}return false">Resultado da Avalia&ccedil;&atilde;o da Disciplina</a></li>
+										<li><a id="j_id_jsp_552244886_1:resultadoAvaliacaoCurso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resultadoAvaliacaoCurso':'j_id_jsp_552244886_1:resultadoAvaliacaoCurso'},'');}return false">Resultado da Avalia&ccedil;&atilde;o do Curso</a></li>									
+									</ul>
+								</li>
+							
+							<li><a id="j_id_jsp_552244886_1:observacaoDocente" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:observacaoDocente':'j_id_jsp_552244886_1:observacaoDocente'},'');}return false">Observa&ccedil;&otilde;es dos Docentes Sobre Minhas Turmas</a></li>
+						</ul>
+					</li>
+				
+						<li><a href="#">Matr&#237;cula On-Line</a>
+							<ul>
+								<li><a id="j_id_jsp_552244886_1:realizarmatricula" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:realizarmatricula':'j_id_jsp_552244886_1:realizarmatricula'},'');}return false">Realizar Matr&iacute;cula</a></li>			  	
+						 		<li></li>
+						 		<li></li>
+						 		<li><a id="j_id_jsp_552244886_1:realizarMatriculaExtraordinaria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:realizarMatriculaExtraordinaria':'j_id_jsp_552244886_1:realizarMatriculaExtraordinaria'},'');}return false">Realizar Matr&iacute;cula Extraordin&aacute;ria</a></li>
+
+						 		<li><a id="j_id_jsp_552244886_1:comprovanteMatricula" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comprovanteMatricula':'j_id_jsp_552244886_1:comprovanteMatricula'},'');}return false">Ver Comprovante de Matr&iacute;cula</a></li>
+								<li><a id="j_id_jsp_552244886_1:orientacoesMatricula" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:orientacoesMatricula':'j_id_jsp_552244886_1:orientacoesMatricula'},'');}return false">Ver Orienta&ccedil;&otilde;es de Matr&iacute;cula</a></li>
+						 		<li><a id="j_id_jsp_552244886_1:resultadoProcessamento" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resultadoProcessamento':'j_id_jsp_552244886_1:resultadoProcessamento'},'');}return false">Ver Resultado do Processamento</a></li>						 		
+							</ul>
+						</li>					
+					
+				<li><a href="#">Solicita&#231;&#245;es de Turma de F&#233;rias</a>
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:solicitarTurmaFerias" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitarTurmaFerias':'j_id_jsp_552244886_1:solicitarTurmaFerias'},'');}return false">Solicitar Turma de F&eacute;rias</a></li>
+							<li><a id="j_id_jsp_552244886_1:solicitacoesFeriasEnviadas" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitacoesFeriasEnviadas':'j_id_jsp_552244886_1:solicitacoesFeriasEnviadas'},'');}return false">Visualizar Solicita&ccedil;&otilde;es Enviadas</a></li>
+							<li><a id="j_id_jsp_552244886_1:comprovanteSolicitacoesFerias" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comprovanteSolicitacoesFerias':'j_id_jsp_552244886_1:comprovanteSolicitacoesFerias'},'');}return false">Emitir Comprovante de Solicita&ccedil;&otilde;es</a></li>
+						</ul>
+					</li>
+				
+					<li><a href="#">Solicita&#231;&#245;es de Turmas Espec&#237;ficas</a>
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:solicitarTurmaEspecifica" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitarTurmaEspecifica':'j_id_jsp_552244886_1:solicitarTurmaEspecifica'},'');}return false">Solicitar Turma Espec&iacute;fica</a></li>
+							<li><a id="j_id_jsp_552244886_1:solicitacoesEnviadas" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitacoesEnviadas':'j_id_jsp_552244886_1:solicitacoesEnviadas'},'');}return false">Visualizar Solicita&ccedil;&otilde;es Enviadas</a></li>
+							<li><a id="j_id_jsp_552244886_1:comprovanteSolicitacoes" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comprovanteSolicitacoes':'j_id_jsp_552244886_1:comprovanteSolicitacoes'},'');}return false">Emitir Comprovante de Solicita&ccedil;&otilde;es</a></li>
+						</ul>				
+					</li>
+					<li><a href="#">Solicita&#231;&#245;es de Turmas de Reposi&#231;&#227;o</a>
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:solicitarTurmaReposicao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitarTurmaReposicao':'j_id_jsp_552244886_1:solicitarTurmaReposicao'},'');}return false">Solicitar Turma Reposi&ccedil;&atilde;o</a> </li>
+							<li><a id="j_id_jsp_552244886_1:solicitacoesTurmaReposicaoEnviadas" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitacoesTurmaReposicaoEnviadas':'j_id_jsp_552244886_1:solicitacoesTurmaReposicaoEnviadas'},'');}return false">Visualizar Solicita&ccedil;&otilde;es Enviadas</a> </li>
+							<li><a id="j_id_jsp_552244886_1:comprovanteSolicitacoesTurmaReposicao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comprovanteSolicitacoesTurmaReposicao':'j_id_jsp_552244886_1:comprovanteSolicitacoesTurmaReposicao'},'');}return false">Emitir Comprovante de Solicita&ccedil;&otilde;es</a> </li>
+						</ul>
+					</li>												
+				
+					<li><a href="#">Trancamento de Componente Curricular</a>		
+						<ul>		
+							<li><a id="j_id_jsp_552244886_1:trancarComponente" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:trancarComponente':'j_id_jsp_552244886_1:trancarComponente'},'');}return false">Trancar</a></li>
+							<li><a id="j_id_jsp_552244886_1:andamentoTrancamento" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:andamentoTrancamento':'j_id_jsp_552244886_1:andamentoTrancamento'},'');}return false">Exibir Andamento do Trancamento</a></li>											
+						</ul>
+					</li>
+				
+					<li><a href="#">Trancamento de Programa</a>		
+						<ul>				
+							<li><a id="j_id_jsp_552244886_1:solicitarTrancamento" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitarTrancamento':'j_id_jsp_552244886_1:solicitarTrancamento'},'');}return false">Solicitar Trancamento</a></li>
+							<li><a id="j_id_jsp_552244886_1:exibirSolicitacoesTrancamento" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:exibirSolicitacoesTrancamento':'j_id_jsp_552244886_1:exibirSolicitacoesTrancamento'},'');}return false">Exibir Solicita&ccedil;&otilde;es de Trancamento</a></li>
+						</ul>
+					</li>
+										
+				
+				
+											
+									
+												
+				<li><a id="j_id_jsp_552244886_1:consultarCurso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarCurso':'j_id_jsp_552244886_1:consultarCurso'},'');}return false">Consultar Curso</a></li>
+				<li><a id="j_id_jsp_552244886_1:consultarComponenteCurricular" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarComponenteCurricular':'j_id_jsp_552244886_1:consultarComponenteCurricular'},'');}return false">Consultar Componente Curricular</a></li>								
+				<li><a id="j_id_jsp_552244886_1:consultarEstruturaCurricular" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarEstruturaCurricular':'j_id_jsp_552244886_1:consultarEstruturaCurricular'},'');}return false">Consultar Estrutura Curricular</a></li>									
+				<li><a id="j_id_jsp_552244886_1:consultarTurma" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarTurma':'j_id_jsp_552244886_1:consultarTurma'},'');}return false">Consultar Turma</a></li>														
+				<li></li>									
+				<li><a id="j_id_jsp_552244886_1:unidadesAcademicas" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:unidadesAcademicas':'j_id_jsp_552244886_1:unidadesAcademicas'},'');}return false">Unidades Acad&ecirc;micas</a></li>
+				<li><a id="j_id_jsp_552244886_1:consultarCalendarioAcademico" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarCalendarioAcademico':'j_id_jsp_552244886_1:consultarCalendarioAcademico'},'');}return false">Consultar Calend&aacute;rio Acad&ecirc;mico</a></li>
+			
+				
+				 
+			</ul>
+		</li>
+		
+		
+		
+		<li><a href="#">Pesquisa</a>		
+			<ul>				
+				<li><a href="#">Projeto de Pesquisa</a>		
+					<ul>
+						<li>
+							<a id="j_id_jsp_552244886_1:consultarProjetos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarProjetos':'j_id_jsp_552244886_1:consultarProjetos','url':'/sigaa/pesquisa/projetoPesquisa/buscarProjetos.do?dispatch=consulta&amp;popular=true&amp;consulta=true'},'');}return false">Consultar Projetos</a>
+						</li>
+						<li><a id="j_id_jsp_552244886_1:meusProjetos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:meusProjetos':'j_id_jsp_552244886_1:meusProjetos'},'');}return false">Projetos que Participo</a></li>
+					</ul>
+				</li>					 
+				
+					<li><a href="#">Plano de Trabalho</a>		
+						<ul>
+							<li>
+								<a id="j_id_jsp_552244886_1:meusPlanosTrabalho" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:meusPlanosTrabalho':'j_id_jsp_552244886_1:meusPlanosTrabalho','url':'/sigaa/pesquisa/planoTrabalho/wizard.do?dispatch=listarPorDiscente'},'');}return false">Meus Planos de Trabalho</a>
+							</li>							
+						</ul>
+					</li>	
+					<li><a href="#">Relat&#243;rios de Inicia&#231;&#227;o Cient&#237;fica</a>		
+						<ul>
+							<li><a href="#">Relat&#243;rios Parciais</a>		
+								<ul>
+									<li>
+										<a id="j_id_jsp_552244886_1:report_enviarRelatorioBolsaParcial" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:report_enviarRelatorioBolsaParcial':'j_id_jsp_552244886_1:report_enviarRelatorioBolsaParcial','url':'/sigaa/pesquisa/relatorioBolsaParcial.do?dispatch=listarPlanos'},'');}return false">Enviar</a>
+									</li>
+									<li>
+										<a id="j_id_jsp_552244886_1:report_consultarRelatorioBolsaParcial" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:report_consultarRelatorioBolsaParcial':'j_id_jsp_552244886_1:report_consultarRelatorioBolsaParcial','url':'/sigaa/pesquisa/relatorioBolsaParcial.do?dispatch=listarRelatorios'},'');}return false">Consultar</a>
+									</li>																			
+								</ul>
+							</li>							
+							<li><a href="#">Relat&#243;rios Finais</a>		
+								<ul>
+									<li>
+										<a id="j_id_jsp_552244886_1:report_enviarRelatorioBolsaFinal" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:report_enviarRelatorioBolsaFinal':'j_id_jsp_552244886_1:report_enviarRelatorioBolsaFinal','url':'/sigaa/pesquisa/relatorioBolsaFinal.do?dispatch=listarPlanos'},'');}return false">Enviar</a>
+									</li>
+									<li>
+										<a id="j_id_jsp_552244886_1:report_consultarRelatorioBolsaFinal" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:report_consultarRelatorioBolsaFinal':'j_id_jsp_552244886_1:report_consultarRelatorioBolsaFinal','url':'/sigaa/pesquisa/relatorioBolsaFinal.do?dispatch=listarRelatorios'},'');}return false">Consultar</a>
+									</li>																		
+								</ul>
+							</li>																					
+						</ul>
+					</li>
+					<li><a href="#">Certificados e Declara&#231;&#245;es</a>		
+						<ul>							
+							<li><a id="j_id_jsp_552244886_1:declaracoesBolsista" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:declaracoesBolsista':'j_id_jsp_552244886_1:declaracoesBolsista'},'');}return false">Declara&ccedil;&atilde;o de Bolsista em Plano de Trabalho</a></li>
+							<li><a id="j_id_jsp_552244886_1:certProgIniciacao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:certProgIniciacao':'j_id_jsp_552244886_1:certProgIniciacao','url':'/sigaa/pesquisa/planoTrabalho/wizard.do?dispatch=listarPorDiscente'},'');}return false">Certificado de participa&ccedil;&atilde;o no Programa de Inicia&ccedil;&atilde;o Cient&iacute;fica</a>
+							</li>
+							<li>
+								<a id="j_id_jsp_552244886_1:certApresentacao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:certApresentacao':'j_id_jsp_552244886_1:certApresentacao','url':'/sigaa/pesquisa/resumoCongresso.do?dispatch=listarResumosAutor'},'');}return false">Certificado de apresenta&ccedil;&atilde;o de trabalho no ENIC</a>
+							</li>	
+						</ul>
+					</li>																																					
+					
+				<li><a href="#">Encontro de Inicia&#231;&#227;o Cient&#237;fica</a>		
+					<ul>
+						<li><a id="j_id_jsp_552244886_1:submeterResumoCongresso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:submeterResumoCongresso':'j_id_jsp_552244886_1:submeterResumoCongresso'},'');}return false">Submeter Trabalho Completo</a></li>
+						<li>
+							<a id="j_id_jsp_552244886_1:resumosCongresso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resumosCongresso':'j_id_jsp_552244886_1:resumosCongresso','url':'/sigaa/pesquisa/resumoCongresso.do?dispatch=listarResumosAutor'},'');}return false">Meus Trabalhos</a>
+						</li>						
+						<li><a id="j_id_jsp_552244886_1:modeloTrabalho" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:modeloTrabalho':'j_id_jsp_552244886_1:modeloTrabalho'},'');}return false">Baixar Modelo do Trabalho</a></li>
+						<li></li>	
+						<li></li>
+						<li><a id="j_id_jsp_552244886_1:justificarAusenciaAutor" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:justificarAusenciaAutor':'j_id_jsp_552244886_1:justificarAusenciaAutor'},'');}return false">Justificar Aus&ecirc;ncia - Autor</a></li>
+						<li></li>			
+						<li></li>
+						<li></li>
+					</ul>
+				</li>												
+			</ul>
+		</li>
+		
+		
+		
+		<li><a href="#">Extens&#227;o</a>
+			<ul>			
+				<li><a id="j_id_jsp_552244886_1:consultarAcoesExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarAcoesExtensao':'j_id_jsp_552244886_1:consultarAcoesExtensao'},'');}return false">Consultar A&ccedil;&otilde;es</a></li>
+				<li><a id="j_id_jsp_552244886_1:meusPlanosTrabalhoExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:meusPlanosTrabalhoExtensao':'j_id_jsp_552244886_1:meusPlanosTrabalhoExtensao'},'');}return false">Meus Planos de Trabalho</a></li>
+				<li><a id="j_id_jsp_552244886_1:acoesMembroEquipeExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:acoesMembroEquipeExtensao':'j_id_jsp_552244886_1:acoesMembroEquipeExtensao'},'');}return false">Minhas A&ccedil;&otilde;es como Membro da Equipe</a></li>
+				<li><a id="j_id_jsp_552244886_1:relatoriosExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:relatoriosExtensao':'j_id_jsp_552244886_1:relatoriosExtensao'},'');}return false">Meus Relat&oacute;rios</a></li>
+				<li><a id="j_id_jsp_552244886_1:certificadosDeclaracoesExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:certificadosDeclaracoesExtensao':'j_id_jsp_552244886_1:certificadosDeclaracoesExtensao'},'');}return false">Certificados e Declara&ccedil;&otilde;es</a></li>
+				<li>
+					<a id="j_id_jsp_552244886_1:inscreverAcaoExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:inscreverAcaoExtensao':'j_id_jsp_552244886_1:inscreverAcaoExtensao','url':'/sigaa/public/extensao/paginaListaPeriodosInscricoesAtividadesPublico.jsf?aba=p-extensao'},'');}return false">Inscri&ccedil;&atilde;o On-line em A&ccedil;&otilde;es de Extens&atilde;o</a>				
+				</li>
+				<li><a id="j_id_jsp_552244886_1:visualizarResultadosExtensao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:visualizarResultadosExtensao':'j_id_jsp_552244886_1:visualizarResultadosExtensao'},'');}return false">Visualizar Resultados das inscri&ccedil;&otilde;es</a></li>						
+			</ul>
+		</li>
+		
+				
+		
+						
+			<li><a href="#">Monitoria</a>
+				<ul>				
+					<li><a id="j_id_jsp_552244886_1:consultarProjetosMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarProjetosMonitoria':'j_id_jsp_552244886_1:consultarProjetosMonitoria'},'');}return false">Consultar Projetos</a></li>
+					<li>
+						<a id="j_id_jsp_552244886_1:projetosMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:projetosMonitoria':'j_id_jsp_552244886_1:projetosMonitoria','url':'/sigaa/monitoria/DiscenteMonitoria/meus_projetos.jsf'},'');}return false">Meus Projetos de Monitoria</a>
+					</li>						
+					<li><a id="j_id_jsp_552244886_1:relatoriosMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:relatoriosMonitoria':'j_id_jsp_552244886_1:relatoriosMonitoria'},'');}return false">Meus Relat&oacute;rios</a></li>		
+					<li><a href="#">Meus Certificados</a>
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:certificadosProjetosMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:certificadosProjetosMonitoria':'j_id_jsp_552244886_1:certificadosProjetosMonitoria'},'');}return false">Certificados de Projetos</a></li>
+							<li><a id="j_id_jsp_552244886_1:certificadosSID_Monitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:certificadosSID_Monitoria':'j_id_jsp_552244886_1:certificadosSID_Monitoria'},'');}return false">Certificados do ENID</a></li>
+						</ul>
+					</li>
+					
+						<li><a href="#">Atividades do M&#234;s / Freq&#252;&#234;ncia</a>		
+							<ul>				
+								<li>
+									<a id="j_id_jsp_552244886_1:cadastrarAtividadesMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:cadastrarAtividadesMonitoria':'j_id_jsp_552244886_1:cadastrarAtividadesMonitoria','url':'/sigaa/monitoria/DiscenteMonitoria/meus_projetos.jsf'},'');}return false">Cadastrar</a>
+								</li>										
+								<li><a id="j_id_jsp_552244886_1:consultarAtividadesMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:consultarAtividadesMonitoria':'j_id_jsp_552244886_1:consultarAtividadesMonitoria'},'');}return false">Consultar</a></li>
+							</ul>
+						</li>																																										
+						<li><a id="j_id_jsp_552244886_1:inscreverSelecaoMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:inscreverSelecaoMonitoria':'j_id_jsp_552244886_1:inscreverSelecaoMonitoria'},'');}return false">Inscrever-se em Sele&ccedil;&atilde;o de Monitoria</a></li>
+						<li><a id="j_id_jsp_552244886_1:resultadoSelecaoMonitoria" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:resultadoSelecaoMonitoria':'j_id_jsp_552244886_1:resultadoSelecaoMonitoria'},'');}return false">Visualizar Resultado da Sele&ccedil;&atilde;o</a></li>				
+					
+				</ul>
+			</li>
+		
+			<li><a href="#">Biblioteca</a>
+				<ul>				
+					<li><a id="j_id_jsp_552244886_1:bib_cadServicosBiblioteca" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_cadServicosBiblioteca':'j_id_jsp_552244886_1:bib_cadServicosBiblioteca'},'');}return false">Cadastrar para Utilizar os Servi&ccedil;os da Biblioteca</a></li>		
+					<li><a id="j_id_jsp_552244886_1:bib_PesqMaterialAcervo" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_PesqMaterialAcervo':'j_id_jsp_552244886_1:bib_PesqMaterialAcervo'},'');}return false">Pesquisar Material no Acervo</a></li>
+					<li><a id="j_id_jsp_552244886_1:bib_PesqArtigoAcervo" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_PesqArtigoAcervo':'j_id_jsp_552244886_1:bib_PesqArtigoAcervo'},'');}return false">Pesquisar Artigo no Acervo</a></li>
+					<li><a href="#">Pesquisar Livros e Bases Digitais</a>		
+						<ul>				
+							<li><a id="j_id_jsp_552244886_1:bib_MinhaBiblioteca" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_MinhaBiblioteca':'j_id_jsp_552244886_1:bib_MinhaBiblioteca'},'_blank');}return false">Minha Biblioteca</a>						
+							<li><a id="j_id_jsp_552244886_1:bib_PesqLivroDigitalCochcrane" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_PesqLivroDigitalCochcrane':'j_id_jsp_552244886_1:bib_PesqLivroDigitalCochcrane'},'_blank');}return false">DotLib - Atheneu e Cochcrane</a></li>
+							<li><a id="j_id_jsp_552244886_1:bib_PesqLivroDigitalTarget" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_PesqLivroDigitalTarget':'j_id_jsp_552244886_1:bib_PesqLivroDigitalTarget'},'_blank');}return false">Target - Normas T&eacute;cnicas</a></li>		
+							<li><a id="j_id_jsp_552244886_1:bib_PesqLivroDigitalPearson" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_PesqLivroDigitalPearson':'j_id_jsp_552244886_1:bib_PesqLivroDigitalPearson'},'_blank');}return false">Biblioteca Virtual Pearson</a></li>
+						</ul>
+					</li>
+					<li><a href="#">Empr&#233;stimos</a>		
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:bib_renovarEmprestimos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_renovarEmprestimos':'j_id_jsp_552244886_1:bib_renovarEmprestimos'},'');}return false">Renovar Meus Empr&eacute;stimos</a></li>
+							<li><a id="j_id_jsp_552244886_1:bib_historicoEmprestimos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_historicoEmprestimos':'j_id_jsp_552244886_1:bib_historicoEmprestimos'},'');}return false">Meu Hist&oacute;rico de Empr&eacute;stimos</a></li>
+							<li><a id="j_id_jsp_552244886_1:bib_Emitir_GRU" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_Emitir_GRU':'j_id_jsp_552244886_1:bib_Emitir_GRU'},'');}return false">Imprimir GRU para pagamentos de multas</a></li>
+						</ul>				
+					</li>							
+					<li><a id="j_id_jsp_552244886_1:bib_verificarSituacao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_verificarSituacao':'j_id_jsp_552244886_1:bib_verificarSituacao'},'');}return false">Verificar Minha Situa&ccedil;&atilde;o / Encerrar V&iacute;nculo  </a></li>
+					<li><a href="#">Informa&#231;&#245;es ao Usu&#225;rio</a>		
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:bib_visualizarVinculos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_visualizarVinculos':'j_id_jsp_552244886_1:bib_visualizarVinculos'},'');}return false">Visualizar meus V&iacute;nculos no Sistema </a></li>
+							<li><a id="j_id_jsp_552244886_1:bib_Visualizar_Politicas" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_Visualizar_Politicas':'j_id_jsp_552244886_1:bib_Visualizar_Politicas'},'');}return false">Visualizar as Pol&iacute;ticas de Empr&eacute;stimo</a></li>
+						</ul>
+					</li>
+					<li><a id="j_id_jsp_552244886_1:bib_SolCatalocacao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bib_SolCatalocacao':'j_id_jsp_552244886_1:bib_SolCatalocacao'},'');}return false">Ficha Catalogr&aacute;fica</a></li>															
+				</ul>
+			</li>
+		
+			<li><a href="#">Bolsas</a>
+				<ul>				
+					<li><a id="j_id_jsp_552244886_1:bolsa_cadastroUnico" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_cadastroUnico':'j_id_jsp_552244886_1:bolsa_cadastroUnico'},'');}return false">Aderir ao Cadastro &Uacute;nico</a></li>
+					<li><a id="j_id_jsp_552244886_1:bolsa_oportunidades" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_oportunidades':'j_id_jsp_552244886_1:bolsa_oportunidades'},'');}return false">Oportunidades de Bolsa</a></li>
+					<li><a id="j_id_jsp_552244886_1:bolsa_registrosInteresse" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_registrosInteresse':'j_id_jsp_552244886_1:bolsa_registrosInteresse'},'');}return false">Acompanhar Meus Registros de Interesse</a></li>		
+					<li><a id="j_id_jsp_552244886_1:bolsa_minhasBolsasInstituicao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_minhasBolsasInstituicao':'j_id_jsp_552244886_1:bolsa_minhasBolsasInstituicao'},'');}return false">Minhas Bolsas na Institui&ccedil;&atilde;o</a></li>
+					<li><a id="j_id_jsp_552244886_1:bolsa_cadastrarFoto" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_cadastrarFoto':'j_id_jsp_552244886_1:bolsa_cadastrarFoto'},'');}return false">Cadastrar Foto para Acesso ao RU</a></li>
+					<li><a id="j_id_jsp_552244886_1:bolsa_auxilioDeclaracao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_auxilioDeclaracao':'j_id_jsp_552244886_1:bolsa_auxilioDeclaracao'},'');}return false">Emitir Declara&ccedil;&atilde;o de Bolsa Aux&iacute;lio</a></li>
+					<li><a id="j_id_jsp_552244886_1:atendimentoSae" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:atendimentoSae':'j_id_jsp_552244886_1:atendimentoSae'},'');}return false">Solicita&ccedil;&otilde;es Eletr&ocirc;nicas</a></li>
+					<li><a href="#">Solicita&#231;&#245;es de Bolsas</a>		
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:bolsa_auxilioAlimentacao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_auxilioAlimentacao':'j_id_jsp_552244886_1:bolsa_auxilioAlimentacao'},'');}return false">Solicita&ccedil;&atilde;o de Bolsa Aux&iacute;lio</a></li>
+							<li><a id="j_id_jsp_552244886_1:bolsa_acompanharAuxilios" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_acompanharAuxilios':'j_id_jsp_552244886_1:bolsa_acompanharAuxilios'},'');}return false">Acompanhar Solicita&ccedil;&atilde;o de Bolsa Aux&iacute;lio</a></li>
+							<li><a id="j_id_jsp_552244886_1:solicitar_desloqueio_acesso_ru" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:solicitar_desloqueio_acesso_ru':'j_id_jsp_552244886_1:solicitar_desloqueio_acesso_ru'},'');}return false">Solicitar Desbloqueio de Acesso ao RU</a></li>
+							<li><a id="j_id_jsp_552244886_1:bolsa_acompanharDesbloqueioRU" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_acompanharDesbloqueioRU':'j_id_jsp_552244886_1:bolsa_acompanharDesbloqueioRU'},'');}return false">Acompanhar Solicita&ccedil;&atilde;o de Desbloqueio do RU</a></li>
+							<li><a id="j_id_jsp_552244886_1:bolsa_assinarTermoAuxilio" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_assinarTermoAuxilio':'j_id_jsp_552244886_1:bolsa_assinarTermoAuxilio'},'');}return false">Assinar Termo de Compromisso de Bolsa Aux&iacute;lio</a></li>
+							<li><a id="j_id_jsp_552244886_1:bolsa_renovarAuxilio" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:bolsa_renovarAuxilio':'j_id_jsp_552244886_1:bolsa_renovarAuxilio'},'');}return false">Renovar Bolsa Aux&iacute;lio</a></li>
+						</ul>
+					</li>
+					<li></li>
+				</ul>
+			</li>
+				
+			<li><a href="#">Est&#225;gio</a>
+				<ul>
+					<li><a id="j_id_jsp_552244886_1:muralVagasEstagio" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:muralVagasEstagio':'j_id_jsp_552244886_1:muralVagasEstagio'},'');}return false">Mural de Vagas</a></li>
+					<li><a id="j_id_jsp_552244886_1:gerenciarEstagio" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:gerenciarEstagio':'j_id_jsp_552244886_1:gerenciarEstagio'},'');}return false">Gerenciar Est&aacute;gios</a></li>
+					<li><a id="j_id_jsp_552244886_1:cadastrarEstagioAvulso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:cadastrarEstagioAvulso':'j_id_jsp_552244886_1:cadastrarEstagioAvulso'},'');}return false">Cadastrar Est&aacute;gio Novo</a></li>	
+				</ul>
+			</li>
+				
+			<li><a href="#">Rela&#231;&#245;es Internacionais</a>
+				<ul>
+					<li>
+						<li><a id="j_id_jsp_552244886_1:realizarInscricao" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:realizarInscricao':'j_id_jsp_552244886_1:realizarInscricao'},'');}return false">Realizar Inscri&ccedil;&atilde;o em Edital de Mobilidade</a></li>
+						<li><a id="j_id_jsp_552244886_1:listaInscricoes" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:listaInscricoes':'j_id_jsp_552244886_1:listaInscricoes'},'');}return false">Visualizar Inscri&ccedil;&atilde;o/Processo de Mobilidade</a></li>
+					</li>
+				</ul>
+			</li>
+											
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+				
+		
+		
+		
+		<li><a href="#">Ambientes Virtuais</a>
+			<ul>
+				<li><a href="#">Comunidades Virtuais</a>
+					<ul>
+						<li><a id="j_id_jsp_552244886_1:comunidadeVirtual_BuscarComunidade" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comunidadeVirtual_BuscarComunidade':'j_id_jsp_552244886_1:comunidadeVirtual_BuscarComunidade'},'');}return false">Buscar Comunidades Virtuais</a></li>
+						<li><a id="j_id_jsp_552244886_1:comunidadeVirtual_MinhasComunidades" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:comunidadeVirtual_MinhasComunidades':'j_id_jsp_552244886_1:comunidadeVirtual_MinhasComunidades'},'');}return false">Minhas Comunidades</a></li>
+					</ul>
+				</li>													
+			</ul>
+		</li>
+		
+		
+		
+		<li><a href="#">Outros</a>
+			<ul>
+				<li><a id="j_id_jsp_552244886_1:meusDadosPessoais" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:meusDadosPessoais':'j_id_jsp_552244886_1:meusDadosPessoais'},'');}return false">Meus Dados Pessoais</a></li>
+				<li><a id="j_id_jsp_552244886_1:forumCursos" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:forumCursos':'j_id_jsp_552244886_1:forumCursos'},'');}return false">F&oacute;rum de Cursos</a></li>		
+				<li><a href="#">Necessidades Educacionais Espec&#237;ficas</a>
+					<ul>
+						<li>
+						   <a id="j_id_jsp_552244886_1:cadastrarDiscenteNEE" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:cadastrarDiscenteNEE':'j_id_jsp_552244886_1:cadastrarDiscenteNEE'},'');}return false">Solicitar Apoio ao CIA</a>
+						 </li>
+					    <li>
+				          <a href="https://www.ufpb.br/cia/contato" target="_blank">Entrar em Contato com o CIA</a>
+				        </li>
+					</ul>
+				</li>				
+				
+					<li><a href="#">Processos Seletivos</a>
+						<ul>
+							<li><a id="j_id_jsp_552244886_1:reopcaoCurso" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:reopcaoCurso':'j_id_jsp_552244886_1:reopcaoCurso'},'');}return false">Reop&ccedil;&atilde;o Interna</a></li>
+						</ul>
+					</li>
+				
+					<li><a id="j_id_jsp_552244886_1:atendimentoAluno" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:atendimentoAluno':'j_id_jsp_552244886_1:atendimentoAluno'},'');}return false">Atendimento ao Aluno</a></li>
+					<li><a id="j_id_jsp_552244886_1:emailInstitucional" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:emailInstitucional':'j_id_jsp_552244886_1:emailInstitucional'},'');}return false">E-mail Institucional</a></li>
+				
+																													
+			</ul>
+		</li>
+		
+		
+	</ul>
+</div>
+
+		</div>
+
+		<div class="row">
+			<div class="col-md-7">
+				<script type="text/javascript">
+				
+var sistema = "/sigaa";
+
+
+var PainelNoticia = (function() {
+	return {
+		show : function(idNoticia){        	
+        	BootstrapDialog.show({
+        		title: 'Not&#237;cia',
+        		message: jQuery('<div><i class="fa fa-spinner fa-pulse"></i> Carregando...</div>').load( '/sigaa/portais/viewNoticia.jsf?id='+idNoticia+'&ajaxRequest'),
+        		buttons: [
+					{
+					    label: 'Ver todas as not&#237;cias',
+					    action: function(dialog) {
+					        dialog.close();
+					        var url = sistema + "/portal/noticias/todas/";
+					        window.open(url,'','width=690,height=430, top=100, left=100, scrollbars' );
+					    }
+					},      
+        		    {
+                    label: 'Fechar',
+                    cssClass: 'btn-primary',
+                    action: function(dialog) {
+                        dialog.close();
+                    }
+                }],
+            });
+        }
+	};
+})();
+</script>
+<!-- inicio carrosel noticias -->
+<div id="carousel-noticias" class="carousel slide" data-ride="carousel">		
+  	<!-- Wrapper for slides -->
+  	
+  	<div class="carousel-inner">
+			
+  	</div>
+  	
+  	<!-- Indicadores -->
+  	<ol class="carousel-indicators">
+    	
+ 	</ol>
+</div>
+<!-- fim carrosel noticias -->
+
+			</div>
+			<div class="col-md-5">
+				<!-- Inicio acesso r&#225;pido  -->
+<div id="acesso-rapido">
+	<a class="left carousel-control" href="#" data-slide="back">
+		<span class="fa fa-chevron-left"></span>
+	</a>
+	<div id="acesso-rapido-scroll" class="scroll-itens">
+		<ul>
+			<!-- 
+			<li>
+				<a href="javascript:PainelSaldoCartaoRU.show()">
+					<span class="icone-cartao-ru"></span>
+					<div>Saldo cart&#227;o <abbr title="Restaurante universit&#225;rio">RU</abbr></div>
+				</a>
+			</li>
+			 -->
+			
+			<li>
+                  <a id="j_id_jsp_552244886_1:botaoSolicitarApoio" href="#" title="Solicitar Apoio ao CIA" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:botaoSolicitarApoio':'j_id_jsp_552244886_1:botaoSolicitarApoio'},'');}return false"><img src="/sigaa/img/modoAcessibilidade.png" />
+                  
+                  <div>Solicitar Apoio ao CIA</div>
+                  </a>
+            </li>
+			
+			<li>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_155':'j_id_jsp_552244886_1:j_id_jsp_552244886_155'},'');}return false">
+					<span class="icone-documento"></span>
+					<div>Hist&#243;rico acad&#234;mico</div>
+				</a>
+			</li>
+			
+			
+				<li>
+					<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_157':'j_id_jsp_552244886_1:j_id_jsp_552244886_157'},'');}return false">
+						<span class="icone-documento"></span>
+						<div>Declara&#231;&#227;o de v&#237;nculo</div>
+					</a>
+				</li>
+			
+			
+			<li>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_158':'j_id_jsp_552244886_1:j_id_jsp_552244886_158'},'');}return false">
+					<span class="icone-documento"></span>
+					<div>Atestado de matr&#237;cula</div>
+				</a>
+			</li>
+			
+			
+				<li>
+					<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_160':'j_id_jsp_552244886_1:j_id_jsp_552244886_160'},'');}return false">
+						<span class="icone-questionario"></span>
+						<div>Avalia&#231;&#227;o institucional</div>
+					</a>
+				</li>
+			
+			
+			<li>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_161':'j_id_jsp_552244886_1:j_id_jsp_552244886_161'},'');}return false">
+					<span class="icone-vagas-estagio"></span>
+					<div>Vagas de est&#225;gio</div>
+				</a>
+			</li>
+			<li>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_162':'j_id_jsp_552244886_1:j_id_jsp_552244886_162'},'');}return false">
+					<span class="icone-consulta-bolsas"></span>
+					<div>Consultar bolsas</div>
+				</a>
+			</li>
+
+			
+				<li>
+					<a href="https://sig-arq.ufpb.br/arquivos/2020189051e2be2611980cbe468246287/Resp29.20.pdf" target="_blank">
+						<span class="icone-regulamento"></span>
+						<div>Regulamento da gradua&#231;&#227;o</div>
+					</a>
+				</li>
+			
+			
+			<li>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_164':'j_id_jsp_552244886_1:j_id_jsp_552244886_164'},'');}return false">
+					<span class="icone-calendario-academico"></span>
+					<div>Calend&#225;rio acad&#234;mico</div>
+				</a>
+			</li>
+			
+			
+			<!-- 
+			<li>
+				<a href="/sigaa/entrarSistema.do?sistema=alumini&url=/redesocial/associar_perfil/associar.jsf">
+					<span class="icone-portal-egresso"></span>
+					<div>Portal do egresso</div>
+				</a>
+			</li>
+			 -->
+		</ul>
+	</div>
+	<a class="right carousel-control" href="#" data-slide="next">
+		<span class="fa fa-chevron-right"></span>
+	</a>
+</div>
+<script type="text/javascript" src="/sigaa/shared/beta/js/jquery.scrollbox.js"></script>
+<script>
+	jQuery("#acesso-rapido").menuAcessoRapido();
+</script>
+<!-- FIM acesso r&#225;pido  -->
+			</div>
+		</div>
+
+		
+
+		
+
+
+<!-- Minhas Turmas -->
+<div class="row">
+	<div class="col-md-12">
+		<div class="box-geral borda">
+			<div class="box-cabecalho">
+				<h3>Minhas turmas</h3>
+				<div class="acoes">	
+					<ul>
+						<li><a href="/sigaa/portais/discente/turmas.jsf">Ver turmas anteriores</a></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			
+			
+			
+				
+				
+				
+
+				
+					
+					
+
+
+
+
+<table class="table table-hover minhas-turmas">
+	
+	<caption>Turmas Abertas</caption>
+	<thead>
+		<tr>
+			<th style="color: inherit;" colspan="2">Componentes curriculares</th>
+			<th style="color: inherit; max-width: 100px">Local</th>
+			<th class="text-center" style="color: inherit; width:80px;">Hor&#225;rio</th>
+			
+			<th style="color: inherit; width:80px">Eventos <i class="fa fa-info-circle"  data-html="true" data-toggle="tooltip" 
+				title="Avalia&#231;&#245;es, atividades e not&#237;cias para o per&#237;odo de <b>09/11 &#224; 01/12/2022</b>"></i>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+		<tr>
+			<td style="width: 70px" class="small">8108108</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168':'j_id_jsp_552244886_1:j_id_jsp_552244886_168','idTurma':'303299'},'');}return false">ADMINISTRA&Ccedil;&Atilde;O I</a>
+				</strong>
+				
+		      		<div class="detalhe">
+		      			22 &#224; 29/11: Defini&#231;&#245;es e desafios da Lideran&#231;a
+					</div>	      
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.E-103 (CCAE)">R.E-103 (CCAE)</div></td>
+			<td class="text-center small">
+				3T1234
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">Avalia&#231;&#227;o III</div>
+												<div class="info">Ter, 29/11 <span class="tempo-decorrido">em 14 dias</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="width: 70px" class="small">8103106</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_1':'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_1','idTurma':'300637'},'');}return false">INTRODUCAO AO COMPUTADOR</a>
+				</strong>
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.E-103 (CCAE)">R.E-103 (CCAE)</div></td>
+			<td class="text-center small">
+				46M23
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">Unidade II</div>
+												<div class="info">Qua, 16/11 <span class="tempo-decorrido">hoje</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown">
+										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">2</span>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-noticia dropdown-menu-right">
+										<li class="dropdown-header">Not&#237;cia</li>
+										
+											<li>
+												<a href="javascript:PainelNoticiaTurma.show(28381903,300637)" >
+													<div class="titulo">Aula de hoje dia 09/11</div>
+													<div class="info">Qua, 09/11 <span class="tempo-decorrido">7 dias atr&#225;s</span></div>
+												</a>
+											</li>
+										
+											<li>
+												<a href="javascript:PainelNoticiaTurma.show(28436289,300637)" >
+													<div class="titulo">Aula de amanh&#227; dia 16/11</div>
+													<div class="info">Ter, 15/11 <span class="tempo-decorrido">ontem</span></div>
+												</a>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="width: 70px" class="small">8103104</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_2':'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_2','idTurma':'300639'},'');}return false">INTRODUCAO A PROGRAMACAO</a>
+				</strong>
+				
+		      		<div class="detalhe">
+		      			31/10 &#224; 16/12: Unidade III
+					</div>	      
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.C-201 (CCAE) / R.C-202 (CCAE)">R.C-201 (CCAE) / R.C-202 (CCAE)</div></td>
+			<td class="text-center small">
+				26M45
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">Prova</div>
+												<div class="info">Sex, 18/11 <span class="tempo-decorrido">em 3 dias</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="width: 70px" class="small">8101105</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_3':'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_3','idTurma':'302277'},'');}return false">INTRODUCAO A SOCIOLOGIA</a>
+				</strong>
+				
+		      		<div class="detalhe">
+		      			Qua 16/11: Racionalismo: A &#233;tica protestante e o esp&#237;rito do capitalismo
+					</div>	      
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.E-103 (CCAE)">R.E-103 (CCAE)</div></td>
+			<td class="text-center small">
+				4T1234
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">In&#237;cio dos semin&#225;rios</div>
+												<div class="info">Qua, 23/11 <span class="tempo-decorrido">em 8 dias</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown">
+										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">1</span>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-noticia dropdown-menu-right">
+										<li class="dropdown-header">Not&#237;cia</li>
+										
+											<li>
+												<a href="javascript:PainelNoticiaTurma.show(28340539,302277)" >
+													<div class="titulo">Distribui&#231;&#227;o dos temas dos semin&#225;rios</div>
+													<div class="info">03 &#224; 16/11 <span class="tempo-decorrido">hoje</span></div>
+												</a>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="width: 70px" class="small">DCET00233</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_4':'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_4','idTurma':'300634'},'');}return false">MATEM&Aacute;TICA DISCRETA</a>
+				</strong>
+				
+		      		<div class="detalhe">
+		      			14/11 &#224; 14/12: UNIDADE III
+					</div>	      
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.E-103 (CCAE)">R.E-103 (CCAE)</div></td>
+			<td class="text-center small">
+				2M23 4M45
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">PROVA 2</div>
+												<div class="info">Qua, 09/11 <span class="tempo-decorrido">7 dias atr&#225;s</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown">
+										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">1</span>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-noticia dropdown-menu-right">
+										<li class="dropdown-header">Not&#237;cia</li>
+										
+											<li>
+												<a href="javascript:PainelNoticiaTurma.show(28338582,300634)" >
+													<div class="titulo">Corre&#231;&#227;o do Question&#225;rio 4</div>
+													<div class="info">Qui, 03/11 <span class="tempo-decorrido">13 dias atr&#225;s</span></div>
+												</a>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td style="width: 70px" class="small">8101306</td>
+			<td>
+				<strong>
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_5':'j_id_jsp_552244886_1:j_id_jsp_552244886_168j_id_5','idTurma':'302288'},'');}return false">METODOLOGIA CIENT&Iacute;FICA</a>
+				</strong>
+				
+		      		<div class="detalhe">
+		      			18/08 &#224; 15/12: AULAS PRESENCIAIS
+					</div>	      
+															
+			</td>
+			<td style="max-width: 100px"><div class="truncate small" title="R.E-103 (CCAE)">R.E-103 (CCAE)</div></td>
+			<td class="text-center small">
+				5T1234
+				
+			</td>
+			
+			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">Avalia&#231;&#227;o 3</div>
+												<div class="info">Qui, 24/11 <span class="tempo-decorrido">em 9 dias</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+							
+					</ul>
+				
+			</td>
+		</tr>
+		
+	</tbody>
+</table>				
+				 
+			 
+		</div>
+	</div>
+</div>
+
+
+			
+
+
+<script>
+jQuery(function ($) {
+	
+	$('table.minhas-turmas').each( function(){
+		var table = $(this);
+
+		//ativa os elementos tooltip marcados com tooltip
+		table.find('[data-toggle="tooltip"]').tooltip();
+		
+		//oculta legenda se n&#227;o h&#225; evento do tipo
+		if (table.find( 'tbody .label-avaliacao' ).size() == 0 ){ 
+			table.find("#legenda-avaliacao").hide(); 
+		}
+		if (table.find( 'tbody .label-atividade' ).size() == 0 ){ 
+			table.find("#legenda-atividade").hide();
+		}
+		if (table.find( 'tbody .label-noticia' ).size() == 0 ){ 
+			table.find("#legenda-noticia").hide();
+		}
+
+		//limita o tamanho m&#225;ximo ocupado pelos elementos de notifica&#231;&#227;o
+		const NUM_MAX_NOTICICACOES = 4;
+		const MAX_WIDTH_LEGENDAS = 210;
+		const MIN_WIDTH_LEGENDAS = 65;
+		var qtd_notificacoes = 0;
+		var width_legendas = MAX_WIDTH_LEGENDAS;
+		
+		table.find('tbody > tr').each( function(){
+			var qtd = $( this ).find("span.label").size();
+			//maior qtd de eventos de todas as turmas
+			qtd_notificacoes = ( qtd > qtd_notificacoes )? qtd : qtd_notificacoes;
+		});
+		if ( qtd_notificacoes < NUM_MAX_NOTICICACOES ){
+			var unidade =  MAX_WIDTH_LEGENDAS / NUM_MAX_NOTICICACOES;
+			var width = unidade * qtd_notificacoes
+			width_legendas = (width < MIN_WIDTH_LEGENDAS)? MIN_WIDTH_LEGENDAS : width;
+		}
+		table.find('thead ul.legendas').parent().css('max-width',width_legendas);
+	});  
+});
+
+
+var PainelNoticiaTurma = (function() {
+	return {
+		show : function(idNoticia, idTurma){        	
+        	BootstrapDialog.show({
+        		title: 'Not&#237;cia',
+        		message: jQuery('<div><i class="fa fa-spinner fa-pulse"></i> Carregando...</div>').load( '/sigaa/ava/NoticiaTurma/mostrar_modal.jsf?id='+idNoticia+'&tid='+idTurma+'&ajaxRequest' ),
+        		buttons: [     
+        		    {
+                    label: 'Fechar',
+                    cssClass: 'btn-primary',
+                    action: function(dialog) {
+                        dialog.close();
+                    }
+                }],
+            });
+        }
+	};
+})();
+</script>
+<!-- Fim - Minhas Turmas -->
+
+		<div class="row">
+			<div class="col-md-6">
+				
+					
+
+
+<div id="forum-curso" class="box-geral borda">
+	<div class="box-cabecalho">
+		<h3>F&#243;rum do curso</h3>
+		<ul class="acoes">
+			<li><a id="j_id_jsp_552244886_1:novoTopicoForum" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:novoTopicoForum':'j_id_jsp_552244886_1:novoTopicoForum'},'');}return false">Cadastrar novo t&oacute;pico</a></li>
+			<li class="separador">|</li>
+			<li><a id="j_id_jsp_552244886_1:listarTopicosForum" href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:listarTopicosForum':'j_id_jsp_552244886_1:listarTopicosForum'},'');}return false">Ver todos os t&oacute;picos</a>
+			</li>
+		</ul>			
+		<div class="clearfix"></div>
+	</div>
+
+	<div class="box-conteudo">
+		
+		<table class="table table-hover">
+			<caption>T&#243;picos (SISTEMAS DE INFORMA&#199;&#195;O - GRADUA&#199;&#195;O)</caption>
+			<thead>
+				<tr>
+					<th colspan="3">T&#243;pico</th>
+				</tr>
+			</thead>
+			<tbody>
+			
+			
+			
+			
+			 
+				
+
+			
+			</tbody>
+		</table>
+	</div><!-- fim box-conteudo -->
+</div>
+
+				
+			</div>
+			<div class="col-md-6">
+				
+
+<div class="box-geral">
+	<div class="box-cabecalho">
+		<h3>Calend&#225;rio</h3>
+		<ul class="acoes">
+		
+			
+			
+				<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_195':'j_id_jsp_552244886_1:j_id_jsp_552244886_195'},'');}return false">Calend&aacute;rio Universit&aacute;rio</a>
+											
+		</ul>			
+		<div class="clearfix"></div>
+	</div>
+	
+	<div id='calendar'></div>
+</div>
+
+<!-- Calend&#225;rio -->
+<script type="text/javascript" src="/sigaa/shared/beta/js/moment.min.js"></script>
+<script type="text/javascript" src="/sigaa/shared/beta/js/fullcalendar.js"></script>
+<script type="text/javascript" src="/sigaa/shared/beta/js/fullcalendar.pt-br.js"></script>
+
+<style>
+.fc-day-grid-event > .fc-content {
+    white-space: normal !important;
+}
+</style>
+
+<script>
+    jQuery(document).ready(function($) {
+    	$('#forum-curso [data-toggle="tooltip"]').tooltip();
+    	
+    	moment.locale('pt-br');
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next',
+                center: 'title',
+                right: 'month,basicWeek'
+            },
+            height:400,
+            defaultView: 'basicWeek',
+            lang: 'pt-br',
+            editable: false,
+            eventLimit: true, // allow "more" link when too many events
+            events: [{"title":"Inicio do periodo de ferias","start":"2023-01-05"},{"title":"Fim do periodo de ferias","start":"2023-01-26"},{"title":"Inicio da matricula on-Line","start":"2022-07-28"},{"title":"Fim do periodo matricula on-line","start":"2022-08-01"},{"title":"Inicio do processamento da matricula","start":"2022-08-03"},{"title":"Fim do processamento da matricula","start":"2022-08-03"},{"title":"Inicio matricula turma de ferias","start":"2022-12-12"},{"title":"Fim do matricula turma de ferias","start":"2022-12-15"},{"title":"Inicio do periodo letivo","start":"2022-08-15"},{"title":"Fim do periodo letivo","start":"2022-12-17"},{"title":"Inicio da re-matricula","start":"2022-08-04"},{"title":"Fim da re-matricula","start":"2022-08-06"},{"title":"Inicio do processamento da re-matricula","start":"2022-08-09"},{"title":"Fim do processamento da re-matricula","start":"2022-08-09"},{"title":"Inicio do trancamento de turma","start":"2022-10-17"},{"title":"Fim do trancamento de turma","start":"2022-10-21"},{"title":"Inicio da solicitacao de turma de ferias","start":"2022-11-21"},{"title":"Fim do solicitacao de turma de ferias","start":"2022-11-25"},{"title":"Inicio da solicitacao de Turma Especifica","start":"2022-08-10"},{"title":"Fim da solicitacao de Turma Especifica","start":"2022-08-11"},{"title":"Inicio da solicitacao da Turma de Reposi??o","start":"2022-08-10"},{"title":"Fim da solicitacao da Turma de Reposi??o","start":"2022-08-11"},{"title":"Inicio do Trancamento Total","start":"2022-10-17"},{"title":"Fim do Trancamento Total","start":"2022-10-21"},{"title":"DCET00233: PROVA 1","start":"2022-09-28","className":"avaliacao"},{"title":"DCET00233: PROVA 2","start":"2022-11-09","className":"avaliacao"},{"title":"DCET00233: prova 3","start":"2022-12-07","className":"avaliacao"},{"title":"8103106: Unidade I","start":"2022-09-23","className":"avaliacao"},{"title":"8103106: Unidade II","start":"2022-11-16","className":"avaliacao"},{"title":"8103106: Unidade III","start":"2022-12-02","className":"avaliacao"},{"title":"8103104: Mini-teste 1","start":"2022-09-02","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-03","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-28","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-11-18","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-12-09","className":"avaliacao"},{"title":"8101105: Primeira avaliacao","start":"2022-10-05","className":"avaliacao"},{"title":"8101105: Inicio PROVA (ENTREGA VIA SIGAA)","start":"2022-10-04","className":"tarefa"},{"title":"8101105: Fim PROVA (ENTREGA VIA SIGAA)","start":"2022-10-05","className":"tarefa"},{"title":"8101105: Inicio dos seminarios","start":"2022-11-23","className":"avaliacao"},{"title":"8101105: FINALIZACAO DOS SEMINARIOS","start":"2022-12-07","className":"avaliacao"},{"title":"8101306: Avaliacao 1","start":"2022-09-15","className":"avaliacao"},{"title":"8101306: Avaliacao 2","start":"2022-10-20","className":"avaliacao"},{"title":"8101306: Avaliacao 3","start":"2022-11-24","className":"avaliacao"},{"title":"8108108: Avaliacao I","start":"2022-10-04","className":"avaliacao"},{"title":"8108108: Avaliacao II","start":"2022-11-08","className":"avaliacao"},{"title":"8108108: Avaliacao III","start":"2022-11-29","className":"avaliacao"}],
+            eventRender: function(event, element) {         
+           		element.find('.fc-title').attr( "title" , event.title );
+           	},
+           	/*
+           	dayClick: function(date, jsEvent, view) {
+                $('#calendar').fullCalendar( 'gotoDate', date );
+                $('#calendar').fullCalendar( 'changeView', 'basicDay');
+            }
+           	*/
+        });
+    });
+</script>
+<!-- FIM - Calend&#225;rio -->
+			</div>
+		</div>
+
+	<input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="j_id2" />
+</form>
+
+
+
+
+	</div> <!-- fecha ufrn-container -->
+	<div class="push"></div>
+</div> <!-- fecha wrapper -->
+
+<div id="ufrn-rodape">
+	<div class="ufrn-container">
+		<div class="rodape-sinfo">
+			<a href="">
+				<img width="60px" alt="STI - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o" title="STI - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o" src="/sigaa/shared/beta/img/sti_logo_preto_branco.png">
+			</a>
+		</div>
+		
+		<div class="rodape-informacao-sistema">
+			SIGAA - 22.11.1 -| STI - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o | Copyright &copy; 2006-2022 - UFPB
+		</div>
+		
+		<div class="rodape-redes-sociais">
+		  
+		</div>
+    </div>
+</div>
+
+
+
+
+
+
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	  ga('create', 'UA-1324301-9', 'auto');
+	  ga('send', 'pageview');
+	
+	</script>	
+
+
+
+<!-- MYFACES JAVASCRIPT -->
+
+</body>
+</html>				
+ 
