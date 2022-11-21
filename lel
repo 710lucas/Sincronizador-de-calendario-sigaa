@@ -1083,7 +1083,7 @@ var PainelNoticia = (function() {
 			<th class="text-center" style="color: inherit; width:80px;">Hor&#225;rio</th>
 			
 			<th style="color: inherit; width:80px">Eventos <i class="fa fa-info-circle"  data-html="true" data-toggle="tooltip" 
-				title="Avalia&#231;&#245;es, atividades e not&#237;cias para o per&#237;odo de <b>09/11 &#224; 01/12/2022</b>"></i>
+				title="Avalia&#231;&#245;es, atividades e not&#237;cias para o per&#237;odo de <b>10/11 &#224; 02/12/2022</b>"></i>
 			</th>
 		</tr>
 	</thead>
@@ -1119,7 +1119,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Avalia&#231;&#227;o III</div>
-												<div class="info">Ter, 29/11 <span class="tempo-decorrido">em 14 dias</span></div>
+												<div class="info">Ter, 29/11 <span class="tempo-decorrido">em 13 dias</span></div>
 											</li>
 										
 									</ul>
@@ -1153,13 +1153,18 @@ var PainelNoticia = (function() {
 						
 							<li>
 								<div class="dropdown">
-									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >2</span></a>
 									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
 										<li class="dropdown-header">Avalia&#231;&#227;o</li>
 										
 											<li class="dropdown-data">
 												<div class="titulo">Unidade II</div>
-												<div class="info">Qua, 16/11 <span class="tempo-decorrido">hoje</span></div>
+												<div class="info">Qua, 16/11 <span class="tempo-decorrido">ontem</span></div>
+											</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">Unidade III</div>
+												<div class="info">Sex, 02/12 <span class="tempo-decorrido">em 16 dias</span></div>
 											</li>
 										
 									</ul>
@@ -1179,14 +1184,14 @@ var PainelNoticia = (function() {
 											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28381903,300637)" >
 													<div class="titulo">Aula de hoje dia 09/11</div>
-													<div class="info">Qua, 09/11 <span class="tempo-decorrido">7 dias atr&#225;s</span></div>
+													<div class="info">Qua, 09/11 <span class="tempo-decorrido">8 dias atr&#225;s</span></div>
 												</a>
 											</li>
 										
 											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28436289,300637)" >
 													<div class="titulo">Aula de amanh&#227; dia 16/11</div>
-													<div class="info">Ter, 15/11 <span class="tempo-decorrido">ontem</span></div>
+													<div class="info">Ter, 15/11 <span class="tempo-decorrido">2 dias atr&#225;s</span></div>
 												</a>
 											</li>
 										
@@ -1229,7 +1234,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Prova</div>
-												<div class="info">Sex, 18/11 <span class="tempo-decorrido">em 3 dias</span></div>
+												<div class="info">Sex, 18/11 <span class="tempo-decorrido">amanh&#227;</span></div>
 											</li>
 										
 									</ul>
@@ -1251,7 +1256,7 @@ var PainelNoticia = (function() {
 				</strong>
 				
 		      		<div class="detalhe">
-		      			Qua 16/11: Racionalismo: A &#233;tica protestante e o esp&#237;rito do capitalismo
+		      			Qua 23/11: SEMIN&#193;RIOS 1 e 2
 					</div>	      
 															
 			</td>
@@ -1273,7 +1278,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">In&#237;cio dos semin&#225;rios</div>
-												<div class="info">Qua, 23/11 <span class="tempo-decorrido">em 8 dias</span></div>
+												<div class="info">Qua, 23/11 <span class="tempo-decorrido">em 7 dias</span></div>
 											</li>
 										
 									</ul>
@@ -1293,7 +1298,7 @@ var PainelNoticia = (function() {
 											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28340539,302277)" >
 													<div class="titulo">Distribui&#231;&#227;o dos temas dos semin&#225;rios</div>
-													<div class="info">03 &#224; 16/11 <span class="tempo-decorrido">hoje</span></div>
+													<div class="info">03 &#224; 16/11 <span class="tempo-decorrido">ontem</span></div>
 												</a>
 											</li>
 										
@@ -1328,21 +1333,6 @@ var PainelNoticia = (function() {
 				
 					<ul class="eventos-turma list-inline">
 						
-							<li>
-								<div class="dropdown">
-									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
-									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
-										<li class="dropdown-header">Avalia&#231;&#227;o</li>
-										
-											<li class="dropdown-data">
-												<div class="titulo">PROVA 2</div>
-												<div class="info">Qua, 09/11 <span class="tempo-decorrido">7 dias atr&#225;s</span></div>
-											</li>
-										
-									</ul>
-								</div>
-							</li>
-						
 							
 						
 							<li>
@@ -1356,7 +1346,7 @@ var PainelNoticia = (function() {
 											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28338582,300634)" >
 													<div class="titulo">Corre&#231;&#227;o do Question&#225;rio 4</div>
-													<div class="info">Qui, 03/11 <span class="tempo-decorrido">13 dias atr&#225;s</span></div>
+													<div class="info">Qui, 03/11 <span class="tempo-decorrido">14 dias atr&#225;s</span></div>
 												</a>
 											</li>
 										
@@ -1399,7 +1389,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Avalia&#231;&#227;o 3</div>
-												<div class="info">Qui, 24/11 <span class="tempo-decorrido">em 9 dias</span></div>
+												<div class="info">Qui, 24/11 <span class="tempo-decorrido">em 8 dias</span></div>
 											</li>
 										
 									</ul>
