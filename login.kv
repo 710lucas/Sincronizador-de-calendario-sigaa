@@ -5,41 +5,68 @@
         padding: [10,50,10,50]
         spacing: 50
 
-        Label:
-            text: 'Welcome'
+        MDLabel:
+            text: 'boas vindas ao\nsincronizador de agenda do SIGAA'
             id: "texto"
-            font_size: 32
+            font_size: 48
+            text_align: 'center'
+            valign: 'center'
+            halign: 'center'
+        
+        MDLabel:
+            markup: True
+            text: "Informe seu usuario e senha do SIGAA\nSaiba mais sobre a politica de privacidade em:\n [color=#4040cc][ref=link]politica[/ref][/color]"
+            text_align: 'center'
+            valign: 'center'
+            halign: 'center'
+            on_ref_press: root.open_browser()
 
         BoxLayout:
             orientation: 'vertical'
 
-            Label:
+            MDLabel:
                 text: 'Login'
-                font_size: 18
-                halign: 'left'
-                text_size: root.width-20, 20
+                font_size: 32
+                text_align: 'center'
+                valign: 'center'
+                halign: 'center'
+                # halign: 'left'
+                # text_size: root.width-20, 20
 
             TextInput:
                 id: login
                 multiline:False
-                font_size: 28
+                font_size: 32
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                valign: 'center'
 
         BoxLayout:
             orientation: 'vertical'
-            Label:
+            MDLabel:
                 text: 'Senha'
-                halign: 'left'
-                font_size: 18
-                text_size: root.width-20, 20
+                text_align: 'center'
+                valign: 'center'
+                halign: 'center'
+                # halign: 'left'
+                font_size: 32
+                # text_size: root.width-20, 20
 
             TextInput:
                 id: password
                 multiline:False
                 password:True
-                font_size: 28
+                font_size: 32
+                size_hint: 0.5, 0.7
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                valign: 'center'
 
-        Button:
+        MDRectangleFlatButton:
             text: 'Login'
             font_size: 24
+            valign: 'center'
+            halign: 'center'
+            anchor_y: 'center'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
             on_press: root.do_login(login.text, password.text)

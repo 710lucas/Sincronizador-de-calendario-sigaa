@@ -1,4 +1,4 @@
-from kivy.app import App
+from kivymd.app import MDApp as App
 from kivy.properties import StringProperty
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 import os
@@ -15,6 +15,10 @@ class Login(Screen):
 
         app.config.read(app.get_application_config())
         app.config.write()
+    
+    def open_browser():
+        import webbrowser
+        webbrowser.open('https://sigaa-sync.neocities.org/politica.html')
 
     def resetForm(self):
         self.ids['login'].text = ""
@@ -25,6 +29,7 @@ class LoginApp(App):
     password = StringProperty(None)
 
     def build(self):
+        self.theme_cls.theme_style = "Dark"
         manager = ScreenManager()
 
         manager.add_widget(Login(name='login'))

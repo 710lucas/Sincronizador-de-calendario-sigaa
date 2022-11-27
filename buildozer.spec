@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy, bs4, requests, lxml, google-api-python-client, google-auth-httplib2, google-auth-oauthlib
+requirements = kivymd, beautifulsoup4, certifi, chardet, idna, charset-normalizer, idna, certifi, urllib3, python3, kivy, bs4, requests, lxml, google-api-python-client, google-auth-httplib2, google-auth-oauthlib, google-auth, pyasn1, pyasn1_modules, rsa, cachetools, protobuf, requests_oauthlib, oauthlib, google.api_core, httplib2, pyparsing, uritemplate
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -262,7 +262,7 @@ android.permissions = INTERNET
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = armeabi-v7a
+android.archs = arm64-v8a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
