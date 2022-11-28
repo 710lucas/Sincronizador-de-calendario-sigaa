@@ -2,13 +2,11 @@
     BoxLayout
         id: login_layout
         orientation: 'vertical'
-        padding: [10,50,10,50]
-        spacing: 50
 
         MDLabel:
-            text: 'boas vindas ao\nsincronizador de agenda do SIGAA'
+            text: 'Sincronizador de agenda do SIGAA'
             id: "texto"
-            font_size: 48
+            font_size: "48sp"
             text_align: 'center'
             valign: 'center'
             halign: 'center'
@@ -26,47 +24,49 @@
 
             MDLabel:
                 text: 'Login'
-                font_size: 32
+                font_size: "32dp"
                 text_align: 'center'
                 valign: 'center'
                 halign: 'center'
                 # halign: 'left'
                 # text_size: root.width-20, 20
 
-            TextInput:
+            MDTextFieldRect:
                 id: login
                 multiline:False
-                font_size: 32
-                size_hint: 0.5, 0.7
+                font_size: "12sp"
+                size_hint: 0.5, 0.2
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                valign: 'center'
 
         BoxLayout:
             orientation: 'vertical'
+            spacing: 0
             MDLabel:
                 text: 'Senha'
                 text_align: 'center'
                 valign: 'center'
                 halign: 'center'
                 # halign: 'left'
-                font_size: 32
+                font_size: "32dp"
                 # text_size: root.width-20, 20
 
-            TextInput:
+            MDTextFieldRect:
                 id: password
                 multiline:False
                 password:True
-                font_size: 32
-                size_hint: 0.5, 0.7
+                font_size: "12sp"
+                size_hint: 0.5, 0.2
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-                valign: 'center'
 
-        MDRectangleFlatButton:
-            text: 'Login'
-            font_size: 24
-            valign: 'center'
-            halign: 'center'
-            anchor_y: 'center'
-            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        BoxLayout:
+            orientation: 'vertical'
+            MDRaisedButton:
+                text: 'Login'
+                font_size: "24sp"
 
-            on_press: root.do_login(login.text, password.text)
+                padding: 50, 25, 50, 25
+                
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                on_press: root.do_login(login.text, password.text)
+        BoxLayout:
