@@ -1,5 +1,5 @@
 <Login>:
-    BoxLayout
+    MDBoxLayout:
         id: login_layout
         orientation: 'vertical'
 
@@ -19,7 +19,7 @@
             halign: 'center'
             on_ref_press: root.open_browser()
 
-        BoxLayout:
+        MDBoxLayout:
             orientation: 'vertical'
 
             MDLabel:
@@ -38,9 +38,8 @@
                 size_hint: 0.5, 0.2
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-        BoxLayout:
+        MDBoxLayout:
             orientation: 'vertical'
-            spacing: 0
             MDLabel:
                 text: 'Senha'
                 text_align: 'center'
@@ -58,15 +57,14 @@
                 size_hint: 0.5, 0.2
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
-        BoxLayout:
+        MDBoxLayout:
             orientation: 'vertical'
-            MDRaisedButton:
+            MDRectangleFlatButton:
                 text: 'Login'
                 font_size: "24sp"
 
-                padding: 50, 25, 50, 25
                 
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
 
                 on_press: root.do_login(login.text, password.text)
-        BoxLayout:
+        MDBoxLayout:
