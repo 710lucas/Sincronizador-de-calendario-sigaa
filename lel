@@ -173,6 +173,12 @@
 				
 
 				
+					<li>
+						<a href="/sigaa/questionarios/" title="Question&#225;rios"  data-toggle="popover" data-placement="bottom"> 
+							<span class="fa fa-check-square-o fa-2x"></span><span class="info">1</span>
+						</a>
+					</li>
+				
 				
 				
 					<li><a href="/sigaa/menu/" title="M&#243;dulos do sistema"><span class="fa fa-th fa-2x"></span></a></li>
@@ -1042,6 +1048,66 @@ var PainelNoticia = (function() {
 		</div>
 
 		
+			<script>
+function removeDiv(id) {
+	var link = document.getElementById(id);
+	link.style.display = 'none'; 	
+}
+
+function popup(id) {
+	var pageURL = '/sigaa/responderQuestionario.jsf?identificador='+id;
+	var w = 700, h = 500;
+	var left = (screen.width/2)-(w/2);
+	var top = (screen.height/2)-(h/2);
+	var targetWin = window.open (pageURL, 'QuestionarioAplicado', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width='+w+', height='+h+', top='+top+', left='+left);
+}
+
+</script>
+
+
+	<script>	
+	jQuery( document ).ready(function($) {
+		$("#modalQuestionarios").modal();
+	});
+	</script>
+
+	<div class="modal fade" id="modalQuestionarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <span class="modal-title" id="modalTitle">Ol&#225;, h&#225; question&#225;ros pendentes de resposta.</span>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+			
+			    <ul>
+			       <li style="list-style-type: none;">
+				       <a href="#void" onclick="popup('0ab376c70933b924');" title="Responder question&#225;rio"  data-toggle="popover" data-placement="bottom"> 
+							<span> <strong>Autoavalia&#231;&#227;o Institucional da CPA 2022 </strong></span> 
+						</a>			
+			       </li>
+			    </ul>	  
+							
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+
+	
+
+
+
+
+
+	
+	
+
+		
 
 		
 
@@ -1083,7 +1149,7 @@ var PainelNoticia = (function() {
 			<th class="text-center" style="color: inherit; width:80px;">Hor&#225;rio</th>
 			
 			<th style="color: inherit; width:80px">Eventos <i class="fa fa-info-circle"  data-html="true" data-toggle="tooltip" 
-				title="Avalia&#231;&#245;es, atividades e not&#237;cias para o per&#237;odo de <b>14/11 &#224; 06/12/2022</b>"></i>
+				title="Avalia&#231;&#245;es, atividades e not&#237;cias para o per&#237;odo de <b>22/11 &#224; 14/12/2022</b>"></i>
 			</th>
 		</tr>
 	</thead>
@@ -1119,7 +1185,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Avalia&#231;&#227;o III</div>
-												<div class="info">Ter, 29/11 <span class="tempo-decorrido">em 9 dias</span></div>
+												<div class="info">Ter, 29/11 <span class="tempo-decorrido">hoje</span></div>
 											</li>
 										
 									</ul>
@@ -1153,18 +1219,13 @@ var PainelNoticia = (function() {
 						
 							<li>
 								<div class="dropdown">
-									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >2</span></a>
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
 									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
 										<li class="dropdown-header">Avalia&#231;&#227;o</li>
 										
 											<li class="dropdown-data">
-												<div class="titulo">Unidade II</div>
-												<div class="info">Qua, 16/11 <span class="tempo-decorrido">5 dias atr&#225;s</span></div>
-											</li>
-										
-											<li class="dropdown-data">
 												<div class="titulo">Unidade III</div>
-												<div class="info">Sex, 02/12 <span class="tempo-decorrido">em 12 dias</span></div>
+												<div class="info">Sex, 02/12 <span class="tempo-decorrido">em 4 dias</span></div>
 											</li>
 										
 									</ul>
@@ -1176,22 +1237,15 @@ var PainelNoticia = (function() {
 							<li>
 								<div class="dropdown">
 									<a href="#" data-toggle="dropdown">
-										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">2</span>
+										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">1</span>
 									</a>
 									<ul class="dropdown-menu dropdown-menu-noticia dropdown-menu-right">
 										<li class="dropdown-header">Not&#237;cia</li>
 										
 											<li>
-												<a href="javascript:PainelNoticiaTurma.show(28381903,300637)" >
-													<div class="titulo">Aula de hoje dia 09/11</div>
-													<div class="info">Qua, 09/11 <span class="tempo-decorrido">12 dias atr&#225;s</span></div>
-												</a>
-											</li>
-										
-											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28436289,300637)" >
 													<div class="titulo">Aula de amanh&#227; dia 16/11</div>
-													<div class="info">Ter, 15/11 <span class="tempo-decorrido">6 dias atr&#225;s</span></div>
+													<div class="info">Ter, 15/11 <span class="tempo-decorrido">14 dias atr&#225;s</span></div>
 												</a>
 											</li>
 										
@@ -1234,7 +1288,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Prova</div>
-												<div class="info">Sex, 18/11 <span class="tempo-decorrido">3 dias atr&#225;s</span></div>
+												<div class="info">Sex, 09/12 <span class="tempo-decorrido">em 11 dias</span></div>
 											</li>
 										
 									</ul>
@@ -1256,7 +1310,7 @@ var PainelNoticia = (function() {
 				</strong>
 				
 		      		<div class="detalhe">
-		      			Qua 23/11: SEMIN&#193;RIOS 1 e 2
+		      			Qua 30/11: SEMIN&#193;RIOS 3 E 4
 					</div>	      
 															
 			</td>
@@ -1272,19 +1326,46 @@ var PainelNoticia = (function() {
 						
 							<li>
 								<div class="dropdown">
-									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >2</span></a>
 									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
 										<li class="dropdown-header">Avalia&#231;&#227;o</li>
 										
 											<li class="dropdown-data">
 												<div class="titulo">In&#237;cio dos semin&#225;rios</div>
-												<div class="info">Qua, 23/11 <span class="tempo-decorrido">em 3 dias</span></div>
+												<div class="info">Qua, 23/11 <span class="tempo-decorrido">6 dias atr&#225;s</span></div>
+											</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">FINALIZA&#199;&#195;O DOS SEMIN&#193;RIOS</div>
+												<div class="info">Qua, 07/12 <span class="tempo-decorrido">em 9 dias</span></div>
 											</li>
 										
 									</ul>
 								</div>
 							</li>
 						
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-atividade" data-toggle="tooltip" title="Atividades">1</span></a>
+									<ul class="dropdown-menu dropdown-menu-atividade dropdown-menu-right">
+										<li class="dropdown-header">Atividade</li>
+										
+											<li>
+												<a href="#" onclick="if(typeof jsfcljs == 'function'){jsfcljs(document.getElementById('j_id_jsp_552244886_1'),{'j_id_jsp_552244886_1:j_id_jsp_552244886_171':'j_id_jsp_552244886_1:j_id_jsp_552244886_171','id':'28507104','idTurma':'302277'},'');}return false">
+													<div class="titulo">Entrega do trabalho SEMIN&#193;RIOS 1 e 2</div>
+													
+														<i class="glyphicon glyphicon-ok" title="Atividade conclu&#237;da"></i>
+													
+													<div class="info">22 &#224; 23/11 <span class="tempo-decorrido">6 dias atr&#225;s</span></div>
+													</a>
+												
+												
+											</li>
+										
+									</ul>
+								</div>
+							</li>
 							
 						
 							<li>
@@ -1298,7 +1379,7 @@ var PainelNoticia = (function() {
 											<li>
 												<a href="javascript:PainelNoticiaTurma.show(28340539,302277)" >
 													<div class="titulo">Distribui&#231;&#227;o dos temas dos semin&#225;rios</div>
-													<div class="info">03 &#224; 16/11 <span class="tempo-decorrido">5 dias atr&#225;s</span></div>
+													<div class="info">03 &#224; 16/11 <span class="tempo-decorrido">13 dias atr&#225;s</span></div>
 												</a>
 											</li>
 										
@@ -1330,6 +1411,46 @@ var PainelNoticia = (function() {
 			</td>
 			
 			<td>
+				
+					<ul class="eventos-turma list-inline">
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown"><span class="badge badge-avaliacao" data-toggle="tooltip" title="Avalia&#231;&#245;es" >1</span></a>
+									<ul class="dropdown-menu dropdown-menu-avaliacao dropdown-menu-right">
+										<li class="dropdown-header">Avalia&#231;&#227;o</li>
+										
+											<li class="dropdown-data">
+												<div class="titulo">prova 3</div>
+												<div class="info">Qua, 07/12 <span class="tempo-decorrido">em 9 dias</span></div>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+						
+							
+						
+							<li>
+								<div class="dropdown">
+									<a href="#" data-toggle="dropdown">
+										<span class="badge badge-noticia"  data-toggle="tooltip" title="Not&#237;cias">1</span>
+									</a>
+									<ul class="dropdown-menu dropdown-menu-noticia dropdown-menu-right">
+										<li class="dropdown-header">Not&#237;cia</li>
+										
+											<li>
+												<a href="javascript:PainelNoticiaTurma.show(28552625,300634)" >
+													<div class="titulo">Recorr&#234;ncia e Grafos</div>
+													<div class="info">Seg, 28/11 <span class="tempo-decorrido">ontem</span></div>
+												</a>
+											</li>
+										
+									</ul>
+								</div>
+							</li>
+							
+					</ul>
 				
 			</td>
 		</tr>
@@ -1364,7 +1485,7 @@ var PainelNoticia = (function() {
 										
 											<li class="dropdown-data">
 												<div class="titulo">Avalia&#231;&#227;o 3</div>
-												<div class="info">Qui, 24/11 <span class="tempo-decorrido">em 4 dias</span></div>
+												<div class="info">Qui, 24/11 <span class="tempo-decorrido">5 dias atr&#225;s</span></div>
 											</li>
 										
 									</ul>
@@ -1542,7 +1663,7 @@ var PainelNoticiaTurma = (function() {
             lang: 'pt-br',
             editable: false,
             eventLimit: true, // allow "more" link when too many events
-            events: [{"title":"Inicio do periodo de ferias","start":"2023-01-05"},{"title":"Fim do periodo de ferias","start":"2023-01-26"},{"title":"Inicio da matricula on-Line","start":"2022-07-28"},{"title":"Fim do periodo matricula on-line","start":"2022-08-01"},{"title":"Inicio do processamento da matricula","start":"2022-08-03"},{"title":"Fim do processamento da matricula","start":"2022-08-03"},{"title":"Inicio do periodo letivo","start":"2022-08-15"},{"title":"Fim do periodo letivo","start":"2022-12-17"},{"title":"Inicio da re-matricula","start":"2022-08-04"},{"title":"Fim da re-matricula","start":"2022-08-06"},{"title":"Inicio do processamento da re-matricula","start":"2022-08-09"},{"title":"Fim do processamento da re-matricula","start":"2022-08-09"},{"title":"Inicio do trancamento de turma","start":"2022-10-17"},{"title":"Fim do trancamento de turma","start":"2022-10-21"},{"title":"Inicio da solicitacao de Turma Especifica","start":"2022-08-10"},{"title":"Fim da solicitacao de Turma Especifica","start":"2022-08-11"},{"title":"Inicio da solicitacao da Turma de Reposi??o","start":"2022-08-10"},{"title":"Fim da solicitacao da Turma de Reposi??o","start":"2022-08-11"},{"title":"Inicio do Trancamento Total","start":"2022-10-17"},{"title":"Fim do Trancamento Total","start":"2022-10-21"},{"title":"DCET00233: PROVA 1","start":"2022-09-28","className":"avaliacao"},{"title":"DCET00233: PROVA 2","start":"2022-11-09","className":"avaliacao"},{"title":"DCET00233: prova 3","start":"2022-12-07","className":"avaliacao"},{"title":"8103106: Unidade I","start":"2022-09-23","className":"avaliacao"},{"title":"8103106: Unidade II","start":"2022-11-16","className":"avaliacao"},{"title":"8103106: Unidade III","start":"2022-12-02","className":"avaliacao"},{"title":"8103104: Mini-teste 1","start":"2022-09-02","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-03","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-28","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-11-18","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-12-09","className":"avaliacao"},{"title":"8101105: Primeira avaliacao","start":"2022-10-05","className":"avaliacao"},{"title":"8101105: Inicio PROVA (ENTREGA VIA SIGAA)","start":"2022-10-04","className":"tarefa"},{"title":"8101105: Fim PROVA (ENTREGA VIA SIGAA)","start":"2022-10-05","className":"tarefa"},{"title":"8101105: Inicio dos seminarios","start":"2022-11-23","className":"avaliacao"},{"title":"8101105: FINALIZACAO DOS SEMINARIOS","start":"2022-12-07","className":"avaliacao"},{"title":"8101306: Avaliacao 1","start":"2022-09-15","className":"avaliacao"},{"title":"8101306: Avaliacao 2","start":"2022-10-20","className":"avaliacao"},{"title":"8101306: Avaliacao 3","start":"2022-11-24","className":"avaliacao"},{"title":"8108108: Avaliacao I","start":"2022-10-04","className":"avaliacao"},{"title":"8108108: Avaliacao II","start":"2022-11-08","className":"avaliacao"},{"title":"8108108: Avaliacao III","start":"2022-11-29","className":"avaliacao"}],
+            events: [{"title":"Inicio do periodo de ferias","start":"2023-01-05"},{"title":"Fim do periodo de ferias","start":"2023-01-26"},{"title":"Inicio da matricula on-Line","start":"2022-07-28"},{"title":"Fim do periodo matricula on-line","start":"2022-08-01"},{"title":"Inicio do processamento da matricula","start":"2022-08-03"},{"title":"Fim do processamento da matricula","start":"2022-08-03"},{"title":"Inicio do periodo letivo","start":"2022-08-15"},{"title":"Fim do periodo letivo","start":"2022-12-17"},{"title":"Inicio da re-matricula","start":"2022-08-04"},{"title":"Fim da re-matricula","start":"2022-08-06"},{"title":"Inicio do processamento da re-matricula","start":"2022-08-09"},{"title":"Fim do processamento da re-matricula","start":"2022-08-09"},{"title":"Inicio do trancamento de turma","start":"2022-10-17"},{"title":"Fim do trancamento de turma","start":"2022-10-21"},{"title":"Inicio da solicitacao de Turma Especifica","start":"2022-08-10"},{"title":"Fim da solicitacao de Turma Especifica","start":"2022-08-11"},{"title":"Inicio da solicitacao da Turma de Reposi??o","start":"2022-08-10"},{"title":"Fim da solicitacao da Turma de Reposi??o","start":"2022-08-11"},{"title":"Inicio do Trancamento Total","start":"2022-10-17"},{"title":"Fim do Trancamento Total","start":"2022-10-21"},{"title":"DCET00233: PROVA 1","start":"2022-09-28","className":"avaliacao"},{"title":"DCET00233: PROVA 2","start":"2022-11-09","className":"avaliacao"},{"title":"DCET00233: prova 3","start":"2022-12-07","className":"avaliacao"},{"title":"8103106: Unidade I","start":"2022-09-23","className":"avaliacao"},{"title":"8103106: Unidade II","start":"2022-11-16","className":"avaliacao"},{"title":"8103106: Unidade III","start":"2022-12-02","className":"avaliacao"},{"title":"8103104: Mini-teste 1","start":"2022-09-02","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-03","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-10-28","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-11-18","className":"avaliacao"},{"title":"8103104: Prova","start":"2022-12-09","className":"avaliacao"},{"title":"8101105: Primeira avaliacao","start":"2022-10-05","className":"avaliacao"},{"title":"8101105: Inicio PROVA (ENTREGA VIA SIGAA)","start":"2022-10-04","className":"tarefa"},{"title":"8101105: Fim PROVA (ENTREGA VIA SIGAA)","start":"2022-10-05","className":"tarefa"},{"title":"8101105: Inicio dos seminarios","start":"2022-11-23","className":"avaliacao"},{"title":"8101105: Inicio Entrega do trabalho SEMINARIOS 1 e 2","start":"2022-11-22","className":"tarefa"},{"title":"8101105: Fim Entrega do trabalho SEMINARIOS 1 e 2","start":"2022-11-23","className":"tarefa"},{"title":"8101105: FINALIZACAO DOS SEMINARIOS","start":"2022-12-07","className":"avaliacao"},{"title":"8101306: Avaliacao 1","start":"2022-09-15","className":"avaliacao"},{"title":"8101306: Avaliacao 2","start":"2022-10-20","className":"avaliacao"},{"title":"8101306: Avaliacao 3","start":"2022-11-24","className":"avaliacao"},{"title":"8108108: Avaliacao I","start":"2022-10-04","className":"avaliacao"},{"title":"8108108: Avaliacao II","start":"2022-11-08","className":"avaliacao"},{"title":"8108108: Avaliacao III","start":"2022-11-29","className":"avaliacao"}],
             eventRender: function(event, element) {         
            		element.find('.fc-title').attr( "title" , event.title );
            	},
@@ -1578,7 +1699,7 @@ var PainelNoticiaTurma = (function() {
 		</div>
 		
 		<div class="rodape-informacao-sistema">
-			SIGAA - 22.11.1 -| STI - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o | Copyright &copy; 2006-2022 - UFPB
+			SIGAA - 22.11.2 -| STI - Superintend&#234;ncia de Tecnologia da Informa&#231;&#227;o | Copyright &copy; 2006-2022 - UFPB
 		</div>
 		
 		<div class="rodape-redes-sociais">
