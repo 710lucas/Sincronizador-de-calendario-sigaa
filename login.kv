@@ -13,11 +13,19 @@
         
         MDLabel:
             markup: True
-            text: "Informe seu usuario e senha do SIGAA\nSaiba mais sobre a politica de privacidade em:\n [color=#4040cc][ref=link]politica[/ref][/color]"
+            text: "Informe seu usuario e senha do SIGAA\nSaiba mais sobre a politica de privacidade em:\n[color=#4040cc][ref=link]politica[/ref][/color]"
             text_align: 'center'
             valign: 'center'
             halign: 'center'
             on_ref_press: root.open_browser()
+        
+        MDLabel:
+            markup: True
+            text: ""
+            id: msg
+            text_align: "center"
+            halign: 'center'
+
 
         MDBoxLayout:
             orientation: 'vertical'

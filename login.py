@@ -45,13 +45,11 @@ def main(usuario, senha):
     lel = s.get("https://sigaa.ufpb.br/sigaa/portais/discente/beta/discente.jsf")
 
     if (lel.url != "https://sigaa.ufpb.br/sigaa/portais/discente/beta/discente.jsf"):
-        print("Senha ou usuarion invalidos")
+        return "Senha ou usuario invalidos"
 
     else:
         print("login feito com sucesso")
 
-        f = open("lel", "w")
-        f.write(lel.text)
 
         soup = BeautifulSoup(lel.text, "lxml")
         turmas = soup.find("table", {"class": "minhas-turmas"})
@@ -82,6 +80,8 @@ def main(usuario, senha):
 
             except:
                 pass
+        
+        return "Sincronização feita com sucesso"
 
 
 # main()

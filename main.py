@@ -11,10 +11,12 @@ class Login(Screen):
 
         app.username = loginText
         app.password = passwordText
-        main(app.username, app.password)
+        self.ids["msg"].text = main(app.username, app.password)
 
         app.config.read(app.get_application_config())
         app.config.write()
+
+
     
     def open_browser():
         import webbrowser
